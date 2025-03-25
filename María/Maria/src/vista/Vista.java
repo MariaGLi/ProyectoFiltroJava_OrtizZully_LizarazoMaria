@@ -1,4 +1,7 @@
 package vista;
+
+import controller.petsController;
+
 /**
  *
  * @author María Lizarazo
@@ -53,6 +56,8 @@ public class Vista extends javax.swing.JFrame {
         birthDate = new javax.swing.JLabel();
         Gender = new javax.swing.JLabel();
         txtGender = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
 
@@ -267,16 +272,23 @@ public class Vista extends javax.swing.JFrame {
                                 .addComponent(emergyContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(3, 3, 3)
                                 .addComponent(txtemergyContact, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnListar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnListar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1)))
                 .addContainerGap(699, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -322,7 +334,8 @@ public class Vista extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(idOwner)
-                            .addComponent(txtidOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtidOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
                 .addGap(0, 37, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,6 +366,8 @@ public class Vista extends javax.swing.JFrame {
                             .addComponent(btnOk))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEliminar)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -390,65 +405,41 @@ public class Vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+    private void txtGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDActionPerformed
-
-    private void txtfullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfullNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtfullNameActionPerformed
-
-    private void txtSpecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSpecieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSpecieActionPerformed
-
-    private void txtBreedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBreedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBreedActionPerformed
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void txtAllergiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAllergiesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAllergiesActionPerformed
-
-    private void txtConditionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConditionsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtConditionsActionPerformed
-
-    private void txtWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtWeightActionPerformed
-
-    private void txtmicroChipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmicroChipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtmicroChipActionPerformed
-
-    private void txtPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhotoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhotoActionPerformed
-
-    private void txtemergyContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemergyContactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtemergyContactActionPerformed
-
-    private void txtidOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidOwnerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtidOwnerActionPerformed
-
-    private void txtbirthDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbirthDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtbirthDateActionPerformed
+    }//GEN-LAST:event_txtGenderActionPerformed
 
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAgeActionPerformed
 
-    private void txtGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenderActionPerformed
+    private void txtbirthDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbirthDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtGenderActionPerformed
+    }//GEN-LAST:event_txtbirthDateActionPerformed
+
+    private void txtidOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidOwnerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidOwnerActionPerformed
+
+    private void txtemergyContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemergyContactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemergyContactActionPerformed
+
+    private void txtmicroChipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmicroChipActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmicroChipActionPerformed
+
+    private void txtWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWeightActionPerformed
+
+    private void txtConditionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConditionsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConditionsActionPerformed
+
+    private void txtAllergiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAllergiesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAllergiesActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
@@ -458,39 +449,38 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListarActionPerformed
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtBreedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBreedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBreedActionPerformed
+
+    private void txtSpecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSpecieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSpecieActionPerformed
+
+    private void txtfullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfullNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfullNameActionPerformed
+
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDActionPerformed
+
+    private void txtPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhotoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhotoActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista().setVisible(true);
-            }
-        });
+        Vista v = new Vista();
+        petsController pc = new petsController(v);
+        v.setVisible(true);
+        v.setLocationRelativeTo(v);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -500,35 +490,37 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel Specie;
     private javax.swing.JLabel allergies;
     private javax.swing.JLabel birthDate;
-    public javax.swing.JButton btnEditar;
-    public javax.swing.JButton btnEliminar;
-    public javax.swing.JButton btnGuardar;
-    public javax.swing.JButton btnListar;
-    public javax.swing.JButton btnOk;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnOk;
     private javax.swing.JLabel conditions;
     private javax.swing.JLabel emergyContact;
     private javax.swing.JLabel fullNmae;
     private javax.swing.JLabel idOwner;
     private javax.swing.JLabel idPet;
-    public javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel microChip;
     private javax.swing.JLabel photo;
     public javax.swing.JTable table;
-    public javax.swing.JTextField txtAge;
-    public javax.swing.JTextField txtAllergies;
-    public javax.swing.JTextField txtBreed;
-    public javax.swing.JTextField txtConditions;
-    public javax.swing.JTextField txtGender;
-    public javax.swing.JTextField txtID;
-    public javax.swing.JTextField txtPhoto;
-    public javax.swing.JTextField txtSpecie;
-    public javax.swing.JTextField txtWeight;
-    public javax.swing.JTextField txtbirthDate;
-    public javax.swing.JTextField txtemergyContact;
-    public javax.swing.JTextField txtfullName;
-    public javax.swing.JTextField txtidOwner;
-    public javax.swing.JTextField txtmicroChip;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtAllergies;
+    private javax.swing.JTextField txtBreed;
+    private javax.swing.JTextField txtConditions;
+    private javax.swing.JTextField txtGender;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtPhoto;
+    private javax.swing.JTextField txtSpecie;
+    private javax.swing.JTextField txtWeight;
+    private javax.swing.JTextField txtbirthDate;
+    private javax.swing.JTextField txtemergyContact;
+    private javax.swing.JTextField txtfullName;
+    private javax.swing.JTextField txtidOwner;
+    private javax.swing.JTextField txtmicroChip;
     private javax.swing.JLabel weight;
     // End of variables declaration//GEN-END:variables
 }
