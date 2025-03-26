@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    Connection conec; // Variable to store(almacenar) the database connection.
+    Connection conec = null; // Variable to store(almacenar) the database connection.
     
     private String URL = "jdbc:mysql://127.0.0.1:3306/Veterinary";
     private String USER = "root";
