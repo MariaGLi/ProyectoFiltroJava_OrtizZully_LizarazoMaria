@@ -8,7 +8,7 @@ public class PetsDAO {
 
     String url = "jdbc:mysql://localhost:3306/Veterinary";
     String user = "root";
-    String pass = "campus2023";
+    String pass = "marializarazo";
 
     public Connection conection() throws SQLException {
         return DriverManager.getConnection(url, user, pass);
@@ -40,7 +40,7 @@ public class PetsDAO {
     // see all animals
     public List<pets> getAll() {
         List<pets> list = new ArrayList<>();
-        String sql = "SELECT * FROM Veterinary";
+        String sql = "SELECT * FROM Pets";
         try (Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 list.add(new pets(
@@ -65,4 +65,15 @@ public class PetsDAO {
         }
         return list;
     }
+
+    /*//Delete pet
+    public void delete(int id_pet){
+        String sql = "DELETE FROM pets WHERE id_pet=" + id_pet;
+        try {
+            Connection con = conection();
+            con = conection.getConnection();
+        } catch (Exception e) {
+        }
+    }*/
+
 }
