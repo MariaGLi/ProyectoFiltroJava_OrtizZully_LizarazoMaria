@@ -4,17 +4,33 @@
  */
 package veterinary;
 
-/**
- *
- * @author const
- */
+import MVC.Controller.ctrlLogin;
+import MVC.Model.Login;
+import MVC.Model.LoginDAO;
+import MVC.View.LoginView;
+import MVC.View.MenuAdmi;
+import MVC.View.crudOwner;
+import MVC.View.crudSuppliers;
+import MVC.View.crudUsers;
+
+
 public class Veterinary {
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        LoginDAO dao = new LoginDAO();
+        Login login = new Login();
+        LoginView logView = new LoginView();
+        ctrlLogin control = new ctrlLogin(login,dao,logView);
+        control.start();
+        //new MenuAdmi().setVisible(true);
+        new crudOwner().setVisible(true);
+        new crudSuppliers().setVisible(true);
+        new crudUsers().setVisible(true);
+        
     }
+    
     
 }

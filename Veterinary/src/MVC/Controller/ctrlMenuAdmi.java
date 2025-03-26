@@ -4,8 +4,11 @@
  */
 package MVC.Controller;
 
+import MVC.Model.CRUDuser;
 import MVC.Model.LoginDAO;
+import MVC.Model.User;
 import MVC.View.MenuAdmi;
+import MVC.View.crudUsers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -15,11 +18,23 @@ import javax.swing.JOptionPane;
  * @author const
  */
 public class ctrlMenuAdmi {
+    private User modelUser;
     private MenuAdmi admiMenu;
+    private CRUDuser queryUser;
+    private crudUsers viewUser;
 
-    public ctrlMenuAdmi(MenuAdmi admiMenu) {
+    public ctrlMenuAdmi(User modelUser, MenuAdmi admiMenu, CRUDuser queryUser, crudUsers viewUser) {
+        this.modelUser = modelUser;
         this.admiMenu = admiMenu;
+        this.queryUser = queryUser;
+        this.viewUser = viewUser;
+        this.viewUser.btnAddUser.addActionListener(this);
+        this.viewUser.
     }
+
+    
+
+    
     
     public void start(){
         admiMenu.setVisible(true);
