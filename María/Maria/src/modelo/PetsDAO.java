@@ -8,7 +8,7 @@ public class PetsDAO {
 
     String url = "jdbc:mysql://localhost:3306/Veterinary";
     String user = "root";
-    String pass = "marializarazo";
+    String pass = "campus2023";
 
     public Connection conection() throws SQLException {
         return DriverManager.getConnection(url, user, pass);
@@ -16,7 +16,7 @@ public class PetsDAO {
 
     // Add a animal
     public void add(pets animal){
-        String sql = "INSERT INTO pets (fullName, species, breed, age, birth_date, gender, allergies, conditions, weight, microchip, photo, emergy_contact, id_owner ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO pets (fullName, species, breed, age, birth_date, gender, allergies, conditions, weight, microchip, photo, emergy_contact, id_owner) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try (Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)){
             ps.setString(1, animal.getFullName());
             ps.setString(2, animal.getSpecies());
@@ -68,7 +68,7 @@ public class PetsDAO {
 
     /*//Delete pet
     public void delete(int id_pet){
-        String sql = "DELETE FROM pets WHERE id_pet=" + id_pet;
+        String sql = "DELETE FROM pets WHERE id_pet= " + id_pet;
         try {
             Connection con = conection();
             con = conection.getConnection();

@@ -31,7 +31,7 @@ CREATE TABLE Pets (
     gender ENUM('male','female'),
     allergies TEXT,
     conditions TEXT,
-    weight DECIMAL(5,2),
+    weight DOUBLE(5,2),
     microchip VARCHAR(255),
     photo VARCHAR(255),
     emergy_contact VARCHAR(255),
@@ -141,6 +141,11 @@ CREATE TABLE Billing (
     FOREIGN KEY (id_veterinarian) REFERENCES Users (id_user)
 );
 
+INSERT INTO Users (full_name, identification, address, phone, email, rol) VALUES
+('Ana García', '123456789', 'Calle Principal 123', '555-111-2222', 'ana.garcia@email.com', 'owner'),
+('Juan Rodríguez', '789123456', 'Transversal Norte 101', '555-777-8888', 'juan.rodriguez@email.com', 'owner'),
+('Isabella Torres', '159357468', 'Callejón Oeste 404', '555-444-5555', 'isabella.torres@email.com', 'owner'),
+('Mateo Castro', '975318642', 'Bulevar Sur 707', '555-123-7890', 'mateo.castro@email.com', 'owner');
 
 INSERT INTO Pets (fullName, species, breed, age, birth_date, gender, allergies, conditions, weight, microchip, photo, emergy_contact, id_owner) VALUES
 ('Max', 'Dog', 'Golden Retriever', 3, '2021-05-15', 'male', 'Pollen', 'None', 25.50, '123456789012345', 'max.jpg', '555-123-4567', 1),
@@ -153,10 +158,3 @@ INSERT INTO Pets (fullName, species, breed, age, birth_date, gender, allergies, 
 ('Simba', 'Cat', 'Bengal', 3, '2021-04-12', 'male', 'Soy', 'None', 5.10, '776655443322119', 'simba.tiff', '555-222-3333', 2),
 ('Daisy', 'Dog', 'Poodle', 7, '2017-09-18', 'female', 'Beef', 'Arthritis', 8.90, '554433221199887', 'daisy.heic', '555-444-5555', 3),
 ('Oliver', 'Cat', 'Sphynx', 1, '2023-06-02', 'male', 'Dust', 'Sensitive Skin', 3.50, '332211998877665', 'oliver.raw', '555-666-7777', 1);
-
-
-INSERT INTO Users (full_name, identification, address, phone, email, rol) VALUES
-('Ana García', '123456789', 'Calle Principal 123', '555-111-2222', 'ana.garcia@email.com', 'owner'),
-('Juan Rodríguez', '789123456', 'Transversal Norte 101', '555-777-8888', 'juan.rodriguez@email.com', 'owner'),
-('Isabella Torres', '159357468', 'Callejón Oeste 404', '555-444-5555', 'isabella.torres@email.com', 'owner'),
-('Mateo Castro', '975318642', 'Bulevar Sur 707', '555-123-7890', 'mateo.castro@email.com', 'owner');

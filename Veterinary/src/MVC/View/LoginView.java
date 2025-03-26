@@ -43,8 +43,6 @@ public class LoginView extends javax.swing.JFrame {
         Right.setBackground(new java.awt.Color(0, 102, 102));
         Right.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\const\\OneDrive\\Documentos\\NetBeansProjects\\Veterinary\\src\\icon\\veterinary.png")); // NOI18N
-
         jLabel4.setFont(new java.awt.Font("Segoe Script", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Happy Feet");
@@ -89,7 +87,7 @@ public class LoginView extends javax.swing.JFrame {
 
         imputUser.setBackground(new java.awt.Color(255, 255, 255));
         imputUser.setForeground(new java.awt.Color(102, 102, 102));
-        imputUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
+        imputUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(102, 102, 102))); // NOI18N
         imputUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imputUserActionPerformed(evt);
@@ -113,7 +111,7 @@ public class LoginView extends javax.swing.JFrame {
         enter.setForeground(new java.awt.Color(255, 255, 255));
         enter.setText("Login");
         left.add(enter);
-        enter.setBounds(580, 300, 72, 27);
+        enter.setBounds(580, 300, 62, 32);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

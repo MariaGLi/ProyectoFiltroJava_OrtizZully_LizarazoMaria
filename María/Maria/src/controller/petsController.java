@@ -37,26 +37,16 @@ public class petsController implements ActionListener {
         String fullName = vista.txtfullName.getText();
         String species = vista.txtSpecie.getText();
         String breed = vista.txtBreed.getText();
+        int ages = Integer.parseInt(vista.txtAge.getText());
         String birth_date = vista.txtbirthDate.getText();
         String gender = vista.txtGender.getText();
         String allergies = vista.txtAllergies.getText();
         String conditions = vista.txtConditions.getText();
+        //String weight = Float.toString(weight());
         String microchip = vista.txtmicroChip.getText();
         String photo = vista.txtPhoto.getText();
         String emergy_contact = vista.txtemergyContact.getText();
-
-        int ages = 0;
-        float weight = 0.0f;
-        int id_owner = 0;
-
-        try {
-            ages = Integer.parseInt(vista.txtAge.getText());
-            weight = Float.parseFloat(vista.txtWeight.getText());
-            id_owner = Integer.parseInt(vista.txtidOwner.getText());
-        } catch (NumberFormatException e) {
-            System.err.println("Error de conversión numérica: " + e.getMessage());
-            return;
-        }
+        int id_owner = Integer.parseInt(vista.txtWeight.getText());        
 
         pet.setFullName(fullName);
         pet.setSpecies(species);
@@ -66,7 +56,7 @@ public class petsController implements ActionListener {
         pet.setGender(gender);
         pet.setAllergies(allergies);
         pet.setConditions(conditions);
-        pet.setWeight(weight);
+        //pet.setWeight(weight);
         pet.setMicrochip(microchip);
         pet.setPhoto(photo);
         pet.setEmergy_contact(emergy_contact);
