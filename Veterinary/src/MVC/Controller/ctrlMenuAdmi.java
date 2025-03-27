@@ -28,8 +28,8 @@ public class ctrlMenuAdmi {
         this.admiMenu = admiMenu;
         this.queryUser = queryUser;
         this.viewUser = viewUser;
-        this.viewUser.btnAddUser.addActionListener(this);
-        this.viewUser.
+        //this.viewUser.btnAddUser.addActionListener(this);
+        //this.viewUser.
     }
 
     
