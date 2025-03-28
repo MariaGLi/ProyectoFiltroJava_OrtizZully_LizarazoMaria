@@ -4,6 +4,15 @@
  */
 package MVC.View;
 
+import MVC.Controller.ControllerOwner;
+import MVC.Controller.ControllerSuppliers;
+import MVC.Controller.ControllerUser;
+import MVC.Model.OwnerDAO;
+import MVC.Model.SupplierDAO;
+import MVC.Model.User;
+import MVC.Model.UserDAO;
+import MVC.Model.suppliers;
+
 /**
  *
  * @author const
@@ -30,7 +39,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         lbMenu = new javax.swing.JLabel();
         lbAdmi = new javax.swing.JLabel();
         btManageUser = new javax.swing.JButton();
-        btManageClient = new javax.swing.JButton();
+        btManageOwner = new javax.swing.JButton();
         btManagePet = new javax.swing.JButton();
         btManageAppoint = new javax.swing.JButton();
         btLogout = new javax.swing.JButton();
@@ -60,15 +69,20 @@ public class MenuAdmi extends javax.swing.JFrame {
         btManageUser.setText("Manage Users");
         btManageUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btManageUser.setPreferredSize(new java.awt.Dimension(157, 32));
-
-        btManageClient.setBackground(new java.awt.Color(0, 102, 102));
-        btManageClient.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btManageClient.setForeground(new java.awt.Color(255, 255, 255));
-        btManageClient.setText("Manage Owner");
-        btManageClient.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btManageClient.addActionListener(new java.awt.event.ActionListener() {
+        btManageUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btManageClientActionPerformed(evt);
+                btManageUserActionPerformed(evt);
+            }
+        });
+
+        btManageOwner.setBackground(new java.awt.Color(0, 102, 102));
+        btManageOwner.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btManageOwner.setForeground(new java.awt.Color(255, 255, 255));
+        btManageOwner.setText("Manage Owner");
+        btManageOwner.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btManageOwner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btManageOwnerActionPerformed(evt);
             }
         });
 
@@ -119,6 +133,11 @@ public class MenuAdmi extends javax.swing.JFrame {
         jButton1.setText("Manage Suppliers");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setPreferredSize(new java.awt.Dimension(157, 32));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 102, 102));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -171,7 +190,7 @@ public class MenuAdmi extends javax.swing.JFrame {
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btManageUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btManageClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btManageOwner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btManagePet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btManageAppoint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,7 +217,7 @@ public class MenuAdmi extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(btManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btManageClient)
+                .addComponent(btManageOwner)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btManagePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -256,9 +275,34 @@ public class MenuAdmi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void btManageClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btManageClientActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btManageClientActionPerformed
+    private void btManageOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btManageOwnerActionPerformed
+        crudOwner co = new crudOwner();
+        OwnerDAO dao = new OwnerDAO();
+        User user = new User();
+        ControllerOwner ctrlO = new ControllerOwner(dao, user, co);
+        co.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btManageOwnerActionPerformed
+
+    private void btManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btManageUserActionPerformed
+        crudUsers cu = new crudUsers();
+        UserDAO dao = new UserDAO();
+        User user = new User();
+        ControllerUser ctrlU = new ControllerUser(dao, user, cu);
+        cu.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btManageUserActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        crudSuppliers cs = new crudSuppliers();
+        SupplierDAO dao = new SupplierDAO();
+        suppliers su = new suppliers();
+        ControllerSuppliers ctrlSp = new ControllerSuppliers(dao, su, cs);
+        cs.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,7 +342,7 @@ public class MenuAdmi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btLogout;
     public javax.swing.JButton btManageAppoint;
-    public javax.swing.JButton btManageClient;
+    public javax.swing.JButton btManageOwner;
     public javax.swing.JButton btManagePet;
     public javax.swing.JButton btManageUser;
     public javax.swing.JButton btReport;

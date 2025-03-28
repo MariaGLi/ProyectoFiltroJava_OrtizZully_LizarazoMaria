@@ -3,16 +3,16 @@ package MVC.Model;
 public class User {
     private int id_user;
     private String full_name;
-    private int identification;
+    private String identification;
     private String addres;
-    private int phone;
+    private String phone;
     private String email;
     private String role;
 
     public User() {
     }
 
-    public User(int id_user, String full_name, int identification, String addres, int phone, String email, String role) {
+    public User(int id_user, String full_name, String identification, String addres, String phone, String email, String role) {
         this.id_user = id_user;
         this.full_name = full_name;
         this.identification = identification;
@@ -38,11 +38,11 @@ public class User {
         this.full_name = full_name;
     }
 
-    public int getIdentification() {
+    public String getIdentification() {
         return identification;
     }
 
-    public void setIdentification(int identification) {
+    public void setIdentification(String identification) {
         this.identification = identification;
     }
 
@@ -54,11 +54,11 @@ public class User {
         this.addres = addres;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -77,4 +77,6 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    
 }

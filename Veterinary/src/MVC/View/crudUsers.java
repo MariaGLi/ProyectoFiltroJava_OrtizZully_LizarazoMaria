@@ -46,9 +46,10 @@ public class crudUsers extends javax.swing.JFrame {
         CbRoleUser = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableUser = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         txtIdUser = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +95,11 @@ public class crudUsers extends javax.swing.JFrame {
         btnAddUser.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnAddUser.setForeground(new java.awt.Color(255, 255, 255));
         btnAddUser.setText("Add");
+        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddUserActionPerformed(evt);
+            }
+        });
 
         txtIdenUser.setBackground(new java.awt.Color(204, 204, 204));
         txtIdenUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -141,8 +147,8 @@ public class crudUsers extends javax.swing.JFrame {
         CbRoleUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Owner", "Administration", "Veterinarian" }));
         CbRoleUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableUser.setBackground(new java.awt.Color(255, 255, 255));
+        TableUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -153,8 +159,8 @@ public class crudUsers extends javax.swing.JFrame {
                 "ID", "Name", "Identification", "Address", "Phone", "Email", "Role"
             }
         ));
-        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jScrollPane1.setViewportView(jTable1);
+        TableUser.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setViewportView(TableUser);
 
         jScrollPane2.setViewportView(jScrollPane1);
 
@@ -164,6 +170,13 @@ public class crudUsers extends javax.swing.JFrame {
 
         txtIdUser.setBackground(new java.awt.Color(204, 204, 204));
         txtIdUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -209,7 +222,9 @@ public class crudUsers extends javax.swing.JFrame {
                                                 .addComponent(txtIdenUser, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(131, 131, 131)
+                                .addGap(15, 15, 15)
+                                .addComponent(btnBack)
+                                .addGap(41, 41, 41)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(16, 16, 16)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -218,8 +233,10 @@ public class crudUsers extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnBack))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -253,9 +270,9 @@ public class crudUsers extends javax.swing.JFrame {
                     .addComponent(btnUpdateUser)
                     .addComponent(btnDeleteUser)
                     .addComponent(btnListUser))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -286,6 +303,17 @@ public class crudUsers extends javax.swing.JFrame {
     private void txtIdenUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdenUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdenUserActionPerformed
+
+    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
+        System.out.println("si sirvo");
+        
+    }//GEN-LAST:event_btnAddUserActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        MenuAdmi menuA = new MenuAdmi();
+        menuA.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,7 +352,9 @@ public class crudUsers extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> CbRoleUser;
+    public javax.swing.JTable TableUser;
     public javax.swing.JButton btnAddUser;
+    public javax.swing.JButton btnBack;
     public javax.swing.JButton btnDeleteUser;
     public javax.swing.JButton btnListUser;
     public javax.swing.JButton btnUpdateUser;
@@ -339,7 +369,6 @@ public class crudUsers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable jTable1;
     public javax.swing.JTextField txtAddressUser;
     public javax.swing.JTextField txtEmailUser;
     public javax.swing.JTextField txtIdUser;

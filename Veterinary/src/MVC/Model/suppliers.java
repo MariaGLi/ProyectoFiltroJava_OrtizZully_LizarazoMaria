@@ -3,19 +3,21 @@ package MVC.Model;
 public class suppliers {
     private int id_supplier;
     private String full_name;
-    private int identification;
+    private String identification;
     private String email;
     private String order_name;
+    private int id_administrator;
 
     public suppliers() {
     }
 
-    public suppliers(int id_supplier, String full_name, int identification, String email, String order_name) {
+    public suppliers(int id_supplier, String full_name, String identification, String email, String order_name, int id_administrator) {
         this.id_supplier = id_supplier;
         this.full_name = full_name;
         this.identification = identification;
         this.email = email;
         this.order_name = order_name;
+        this.id_administrator = id_administrator;
     }
 
     public int getId_supplier() {
@@ -34,11 +36,11 @@ public class suppliers {
         this.full_name = full_name;
     }
 
-    public int getIdentification() {
+    public String getIdentification() {
         return identification;
     }
 
-    public void setIdentification(int identification) {
+    public void setIdentification(String identification) {
         this.identification = identification;
     }
 
@@ -57,4 +59,13 @@ public class suppliers {
     public void setOrder_name(String order_name) {
         this.order_name = order_name;
     }
+
+    public int getId_administrator() {
+        return id_administrator;
+    }
+
+    public void setId_administrator(int id_administrator) {
+        this.id_administrator = id_administrator;
+    }
+    
 }

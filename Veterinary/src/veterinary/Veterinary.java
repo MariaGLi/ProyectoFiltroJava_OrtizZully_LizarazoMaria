@@ -25,12 +25,6 @@ public class Veterinary {
         LoginView logView = new LoginView();
         ctrlLogin control = new ctrlLogin(login,dao,logView);
         control.start();
-        //new MenuAdmi().setVisible(true);
-        new crudOwner().setVisible(true);
-        new crudSuppliers().setVisible(true);
-        new crudUsers().setVisible(true);
         
     }
-    
-    
 }

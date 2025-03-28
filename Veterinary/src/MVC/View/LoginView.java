@@ -87,7 +87,7 @@ public class LoginView extends javax.swing.JFrame {
 
         imputUser.setBackground(new java.awt.Color(255, 255, 255));
         imputUser.setForeground(new java.awt.Color(102, 102, 102));
-        imputUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(102, 102, 102))); // NOI18N
+        imputUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
         imputUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imputUserActionPerformed(evt);
@@ -111,7 +111,7 @@ public class LoginView extends javax.swing.JFrame {
         enter.setForeground(new java.awt.Color(255, 255, 255));
         enter.setText("Login");
         left.add(enter);
-        enter.setBounds(580, 300, 62, 32);
+        enter.setBounds(580, 300, 90, 27);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

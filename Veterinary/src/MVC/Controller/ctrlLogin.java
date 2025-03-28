@@ -13,7 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ctrlLogin implements ActionListener {
-
     private Login login;
     private LoginDAO dao;
     private LoginView logView;
@@ -26,7 +25,7 @@ public class ctrlLogin implements ActionListener {
     }
 
     // Method to show the login window
-    public void start() {
+    public void start(){
         logView.setTitle("LOGIN = HAPPY FEET");
         logView.setLocationRelativeTo(null);
         logView.setVisible(true);
@@ -34,32 +33,34 @@ public class ctrlLogin implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == logView.enter) {
+        if(e.getSource() == logView.enter ){
             // get the user and password 
             login.setUsername(logView.imputUser.getText());
             login.setPass(new String(logView.InputPass.getPassword()));
 
-            /*if (dao.getUsers(login)) {
-                JOptionPane.showMessageDialog(null, "Correct login!! Role: " + login.getRole());
 
-                if (login.getRole().equals("administrator")) {
+            if( dao.getUsers(login)){
+                JOptionPane.showMessageDialog(null,"Correct login!! Role: "+ login.getRole());
+                
+                if (login.getRole().equals("administrator")){
                     MenuAdmi admiMenu = new MenuAdmi();
                     ctrlMenuAdmi admiCtrl = new ctrlMenuAdmi(admiMenu);
                     admiCtrl.start();
-                } else if (login.getRole().equals("owner")) {
+                }else if (login.getRole().equals("owner")){
                     MenuOwner ownerMenu = new MenuOwner();
-                    ctrlMenuOwner ownerCtrl = new ctrlMenuOwner(ownerMenu);
+                    ctrlMenuOwner ownerCtrl = new ctrlMenuOwner (ownerMenu);
                     ownerCtrl.start();
-                } else if (login.getRole().equals("veterinarian")) {
+                }else if (login.getRole().equals("veterinarian")){
                     MenuVet vetMenu = new MenuVet();
                     ctrlMenuVet vetCtrl = new ctrlMenuVet(vetMenu);
                     vetCtrl.start();
                 }
                 logView.setVisible(false);
-            } else {
-                JOptionPane.showMessageDialog(null, "Wrong user or password");
-            }*/
+            }else {
+                    JOptionPane.showMessageDialog(null, "Wrong user or password");
+                }
         }
     }
+
 
 }

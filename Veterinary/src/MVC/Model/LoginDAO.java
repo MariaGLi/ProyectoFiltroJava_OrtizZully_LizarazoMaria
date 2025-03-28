@@ -1,8 +1,8 @@
 package MVC.Model;
 
-import java.awt.List;
+
 import java.sql.*;
-import java.util.ArrayList;
+
 
 public class LoginDAO extends Conexion {
     
@@ -31,10 +31,6 @@ public class LoginDAO extends Conexion {
             return false;
         }
     }
-    /*
-    public List<String[]> ListUsers(){
-        List<String[]> users = new ArrayList<>();
-        PreparedState
-    }*/
+   
   
 }
