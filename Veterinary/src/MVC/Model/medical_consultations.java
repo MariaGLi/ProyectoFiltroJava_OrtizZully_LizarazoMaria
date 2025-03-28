@@ -1,10 +1,9 @@
 package MVC.Model;
 
-import java.time.LocalDateTime;
 
 public class medical_consultations {
     private int id_consultation;
-    private LocalDateTime date_time;
+    private String date_time;
     private int id_veterinarian;
     private int id_pet;
     private int id_owner;
@@ -18,7 +17,7 @@ public class medical_consultations {
     public medical_consultations() {
     }
 
-    public medical_consultations(int id_consultation, LocalDateTime date_time, int id_veterinarian, int id_pet, int id_owner, String reason, String diagnosis, String recommendations, String prescription, String required_precedures, String status_consul) {
+    public medical_consultations(int id_consultation, String date_time, int id_veterinarian, int id_pet, int id_owner, String reason, String diagnosis, String recommendations, String prescription, String required_precedures, String status_consul) {
         this.id_consultation = id_consultation;
         this.date_time = date_time;
         this.id_veterinarian = id_veterinarian;
@@ -40,11 +39,11 @@ public class medical_consultations {
         this.id_consultation = id_consultation;
     }
 
-    public LocalDateTime getDate_time() {
+    public String getDate_time() {
         return date_time;
     }
 
-    public void setDate_time(LocalDateTime date_time) {
+    public void setDate_time(String date_time) {
         this.date_time = date_time;
     }
 

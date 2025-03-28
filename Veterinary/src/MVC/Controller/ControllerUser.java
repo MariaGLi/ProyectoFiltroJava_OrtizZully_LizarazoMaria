@@ -49,7 +49,6 @@ public class ControllerUser implements ActionListener{
         }
         
         if(e.getSource() == viewUser.btnUpdateUser){
-            System.out.println("Ejecutando");
             user.setId_user(Integer.parseInt(viewUser.txtIdUser.getText()));
             user.setFull_name(viewUser.txtNameUser.getText());
             user.setIdentification(viewUser.txtIdenUser.getText());

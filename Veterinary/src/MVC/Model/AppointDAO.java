@@ -7,11 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.sql.*;
-import java.time.LocalDate;
-import java.sql.Date;
 
 public class AppointDAO extends Conexion{
-    
+    // CORREGIR 
     public boolean InsertAppoint(medical_consultations mc){
         PreparedStatement ps = null;
         Connection conec = getConexion();
@@ -20,7 +18,7 @@ public class AppointDAO extends Conexion{
         
         try{
             ps = conec.prepareStatement(sql); 
-            //ps.setDate()(1,mc.getDate_time());
+            ps.setString(1, mc.getDate_time());
             ps.setInt(2, mc.getId_veterinarian());
             ps.setInt(3, mc.getId_pet());
             ps.setInt(4, mc.getId_owner());
@@ -47,7 +45,7 @@ public class AppointDAO extends Conexion{
         
         try{
             ps = conec.prepareStatement(sql);
-            //ps.setDate()(1,mc.getDate_time());
+            ps.setString(1,mc.getDate_time());
             ps.setInt(2, mc.getId_veterinarian());
             ps.setInt(3, mc.getId_pet());
             ps.setInt(4, mc.getId_owner());
@@ -99,8 +97,8 @@ public class AppointDAO extends Conexion{
             while (rs.next()){
                 medical_consultations mc = new medical_consultations();
                 mc.setId_consultation(rs.getInt("id_consultation"));
-                //mc.setDate_time(rs.getDate("date_time"));
-                mc.setId_veterinarian(rs.getInt("identification"));
+                mc.setDate_time(rs.getString("date_time"));
+                mc.setId_veterinarian(rs.getInt("id_veterinarian"));
                 mc.setId_pet(rs.getInt("id_pet"));
                 mc.setId_owner(rs.getInt("id_owner"));
                 mc.setReason(rs.getString("reason"));

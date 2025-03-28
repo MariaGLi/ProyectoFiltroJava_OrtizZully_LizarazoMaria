@@ -4,13 +4,19 @@
  */
 package MVC.View;
 
+import MVC.Controller.ControllerAppoint;
+import MVC.Controller.ControllerMedications;
 import MVC.Controller.ControllerOwner;
 import MVC.Controller.ControllerSuppliers;
 import MVC.Controller.ControllerUser;
+import MVC.Model.AppointDAO;
+import MVC.Model.MedicationsDAO;
 import MVC.Model.OwnerDAO;
 import MVC.Model.SupplierDAO;
 import MVC.Model.User;
 import MVC.Model.UserDAO;
+import MVC.Model.medical_consultations;
+import MVC.Model.medications;
 import MVC.Model.suppliers;
 
 /**
@@ -45,7 +51,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         btLogout = new javax.swing.JButton();
         btReport = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bntMnageMedication = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -139,15 +145,15 @@ public class MenuAdmi extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 102));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Manage Medications");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setPreferredSize(new java.awt.Dimension(157, 32));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bntMnageMedication.setBackground(new java.awt.Color(0, 102, 102));
+        bntMnageMedication.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bntMnageMedication.setForeground(new java.awt.Color(255, 255, 255));
+        bntMnageMedication.setText("Manage Medications");
+        bntMnageMedication.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bntMnageMedication.setPreferredSize(new java.awt.Dimension(157, 32));
+        bntMnageMedication.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bntMnageMedicationActionPerformed(evt);
             }
         });
 
@@ -193,7 +199,7 @@ public class MenuAdmi extends javax.swing.JFrame {
                         .addComponent(btManageOwner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btManagePet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btManageAppoint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bntMnageMedication, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 72, Short.MAX_VALUE))
@@ -225,7 +231,7 @@ public class MenuAdmi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bntMnageMedication, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -262,16 +268,26 @@ public class MenuAdmi extends javax.swing.JFrame {
     }//GEN-LAST:event_btLogoutActionPerformed
 
     private void btManageAppointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btManageAppointActionPerformed
-        // TODO add your handling code here:
+        crudAppoint ca = new crudAppoint();
+        AppointDAO dao = new AppointDAO();
+        medical_consultations mc = new medical_consultations();
+        ControllerAppoint ctrlA = new ControllerAppoint(mc, dao, ca);
+        ca.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btManageAppointActionPerformed
 
     private void btManagePetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btManagePetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btManagePetActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void bntMnageMedicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMnageMedicationActionPerformed
+        crudMedications cm = new crudMedications();
+        medications medi = new medications();
+        MedicationsDAO dao = new MedicationsDAO();
+        ControllerMedications ctrlM = new ControllerMedications(medi, dao, cm);
+        cm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bntMnageMedicationActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -342,6 +358,7 @@ public class MenuAdmi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton bntMnageMedication;
     public javax.swing.JButton btLogout;
     public javax.swing.JButton btManageAppoint;
     public javax.swing.JButton btManageOwner;
@@ -349,7 +366,6 @@ public class MenuAdmi extends javax.swing.JFrame {
     public javax.swing.JButton btManageUser;
     public javax.swing.JButton btReport;
     public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
     public javax.swing.JButton jButton4;
     public javax.swing.JButton jButton5;
