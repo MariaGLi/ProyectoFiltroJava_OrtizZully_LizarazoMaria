@@ -2,11 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.PetsDAO;
@@ -27,6 +23,8 @@ public class petsController implements ActionListener {
 
         this.vista.btnListar.addActionListener(this);
         this.vista.btnGuardar.addActionListener(this);
+        this.vista.btnEliminar.addActionListener(this);
+        this.vista.btnEditar.addActionListener(this);
     }
 
     @Override
@@ -54,18 +52,20 @@ public class petsController implements ActionListener {
         }
 
         if (e.getSource() == vista.btnEliminar) {
+            petdao.deletePets(Integer.parseInt(vista.txtID.getText()));            
+        }
+        
+        if (e.getSource() == vista.btnEditar){
+            pet.setAge(Integer.parseInt(vista.txtAge.getText()));
+            pet.setAllergies(vista.txtAllergies.getText());
+            pet.setConditions(vista.txtConditions.getText());
+            pet.setWeight(Integer.parseInt(vista.txtWeight.getText()));
+            pet.setPhoto(vista.txtPhoto.getText());
+            pet.setEmergy_contact(vista.txtemergyContact.getText());
             pet.setId_pet(Integer.parseInt(vista.txtID.getText()));
-            try {
-                if (petdao.deletePets(pet)) {
-                    JOptionPane.showMessageDialog(null, "Pet delete");
-                    list(vista.table); 
-                    vista.txtID.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Pet not delete");
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
+            pet.setId_owner(Integer.parseInt(vista.txtidOwner.getText()));
+            petdao.update(pet);
+            list(vista.table);
         }
     }
 

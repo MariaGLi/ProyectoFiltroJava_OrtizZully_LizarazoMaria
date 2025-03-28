@@ -66,7 +66,6 @@ public class Vista extends javax.swing.JFrame {
         Breed.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         Breed.setText("Breed:");
 
-        txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDActionPerformed(evt);
@@ -429,10 +428,6 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAllergiesActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListarActionPerformed
@@ -460,6 +455,10 @@ public class Vista extends javax.swing.JFrame {
     private void txtidOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidOwnerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidOwnerActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Age;
@@ -500,4 +499,6 @@ public class Vista extends javax.swing.JFrame {
     public javax.swing.JTextField txtmicroChip;
     private javax.swing.JLabel weight;
     // End of variables declaration//GEN-END:variables
+
+    
 }

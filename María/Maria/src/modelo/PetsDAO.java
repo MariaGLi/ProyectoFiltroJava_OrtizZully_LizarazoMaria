@@ -3,12 +3,13 @@ package modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class PetsDAO {
-
+    
     String url = "jdbc:mysql://localhost:3306/Veterinary";
     String user = "root";
-    String pass = "marializarazo";
+    String pass = "campus2023";
 
     public Connection conection() throws SQLException {
         return DriverManager.getConnection(url, user, pass);
@@ -31,7 +32,26 @@ public class PetsDAO {
             ps.setString(11, animal.getPhoto());
             ps.setString(12, animal.getEmergy_contact());
             ps.setInt(13, animal.getId_owner());
-            ps.executeUpdate(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void update(pets animal){
+        
+        String sql = "UPDATE Pets SET age = ?, allergies = ?, conditions = ?, weight = ?, photo = ?, emergy_contact = ?, id_owner = ? WHERE id_pet = ?";
+        
+        try (Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)){
+            ps.setInt(1, animal.getAge());
+            ps.setString(2, animal.getAllergies());
+            ps.setString(3, animal.getConditions());
+            ps.setFloat(4, animal.getWeight());
+            ps.setString(5, animal.getPhoto());
+            ps.setString(6, animal.getEmergy_contact());
+            ps.setInt(7, animal.getId_owner());
+            ps.setInt(8, animal.getId_pet());
+            ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,16 +85,16 @@ public class PetsDAO {
         }
         return list;
     }
-
-    public boolean deletePets(pets animal) throws SQLException {
+    
+    public void  deletePets(int id){
         String sql = "DELETE FROM Pets WHERE id_pet = ?";
-        try (Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, animal.getId_pet());
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
+        try(Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)){
+            ps.setInt(1, id);
+            ps.execute();
+            System.out.println("Pet delete.");
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error when deleting the mascot" + e);
         }
-        return false;
     }
 
 }

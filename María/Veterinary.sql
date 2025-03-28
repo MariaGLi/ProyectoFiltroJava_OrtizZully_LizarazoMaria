@@ -32,7 +32,7 @@ CREATE TABLE Pets (
     allergies TEXT,
     conditions TEXT,
     weight INT,
-    microchip VARCHAR(255),
+	microchip VARCHAR(255),
     photo VARCHAR(255),
     emergy_contact VARCHAR(255),
     id_owner INT,
@@ -119,7 +119,7 @@ CREATE TABLE Additional_Services(
     id_pet INT,
     service_type ENUM('bathing','daycare','training'),
     descriptionServices TEXT,
-    date_time DATETIME,
+    date_time varchar(250),
     FOREIGN KEY (id_pet) REFERENCES Pets (id_pet)
 );
 

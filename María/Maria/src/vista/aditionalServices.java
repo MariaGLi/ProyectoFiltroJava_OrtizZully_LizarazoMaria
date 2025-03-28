@@ -29,18 +29,20 @@ public class aditionalServices extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        enter = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        servicesType = new javax.swing.JLabel();
+        txtServType = new javax.swing.JTextField();
+        descServices = new javax.swing.JLabel();
+        txtdescServ = new javax.swing.JTextField();
+        dateTime = new javax.swing.JLabel();
+        txtdateTime = new javax.swing.JTextField();
+        btnCancel = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        btnList = new javax.swing.JButton();
+        idPet = new javax.swing.JLabel();
+        txtidPet = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,50 +125,50 @@ public class aditionalServices extends javax.swing.JFrame {
         left.add(jLabel1);
         jLabel1.setBounds(460, 50, 290, 40);
 
-        enter.setBackground(new java.awt.Color(0, 102, 102));
-        enter.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        enter.setForeground(new java.awt.Color(255, 255, 255));
-        enter.setText("Add");
-        enter.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setBackground(new java.awt.Color(0, 102, 102));
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
-        left.add(enter);
-        enter.setBounds(680, 360, 62, 29);
+        left.add(btnAdd);
+        btnAdd.setBounds(680, 390, 62, 34);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("ServicesType: ");
-        left.add(jLabel3);
-        jLabel3.setBounds(430, 150, 120, 25);
+        servicesType.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        servicesType.setText("ServicesType: ");
+        left.add(servicesType);
+        servicesType.setBounds(430, 190, 120, 25);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtServType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtServTypeActionPerformed(evt);
             }
         });
-        left.add(jTextField1);
-        jTextField1.setBounds(570, 150, 190, 22);
+        left.add(txtServType);
+        txtServType.setBounds(570, 190, 190, 28);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("DescripcionServices: ");
-        left.add(jLabel6);
-        jLabel6.setBounds(430, 200, 170, 25);
-        left.add(jTextField2);
-        jTextField2.setBounds(610, 200, 150, 60);
+        descServices.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        descServices.setText("DescripcionServices: ");
+        left.add(descServices);
+        descServices.setBounds(430, 240, 170, 25);
+        left.add(txtdescServ);
+        txtdescServ.setBounds(610, 240, 150, 60);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setText("DateTime:");
-        left.add(jLabel7);
-        jLabel7.setBounds(430, 280, 90, 25);
-        left.add(jTextField3);
-        jTextField3.setBounds(570, 280, 190, 22);
+        dateTime.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        dateTime.setText("DateTime:");
+        left.add(dateTime);
+        dateTime.setBounds(430, 320, 90, 25);
+        left.add(txtdateTime);
+        txtdateTime.setBounds(570, 320, 190, 28);
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jButton1.setText("Cancel");
-        left.add(jButton1);
-        jButton1.setBounds(460, 360, 80, 29);
+        btnCancel.setBackground(new java.awt.Color(0, 102, 102));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCancel.setText("Cancel");
+        left.add(btnCancel);
+        btnCancel.setBounds(460, 390, 80, 34);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -197,11 +199,18 @@ public class aditionalServices extends javax.swing.JFrame {
         left.add(jPanel2);
         jPanel2.setBounds(0, 480, 800, 150);
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 102));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jButton2.setText("List");
-        left.add(jButton2);
-        jButton2.setBounds(580, 360, 72, 29);
+        btnList.setBackground(new java.awt.Color(0, 102, 102));
+        btnList.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnList.setText("List");
+        left.add(btnList);
+        btnList.setBounds(580, 390, 52, 34);
+
+        idPet.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idPet.setText("IdPet:");
+        left.add(idPet);
+        idPet.setBounds(430, 140, 60, 25);
+        left.add(txtidPet);
+        txtidPet.setBounds(570, 140, 190, 28);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,71 +230,41 @@ public class aditionalServices extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_enterActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtServTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtServTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtServTypeActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(aditionalServices.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(aditionalServices.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(aditionalServices.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(aditionalServices.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new aditionalServices().setVisible(true);
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Right;
-    public javax.swing.JButton enter;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton btnAdd;
+    public javax.swing.JButton btnCancel;
+    public javax.swing.JButton btnList;
+    private javax.swing.JLabel dateTime;
+    private javax.swing.JLabel descServices;
+    private javax.swing.JLabel idPet;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel left;
+    private javax.swing.JLabel servicesType;
+    public javax.swing.JTextField txtServType;
+    public javax.swing.JTextField txtdateTime;
+    public javax.swing.JTextField txtdescServ;
+    public javax.swing.JTextField txtidPet;
     // End of variables declaration//GEN-END:variables
 }
