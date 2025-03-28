@@ -31,7 +31,7 @@ CREATE TABLE Pets (
     gender ENUM('male','female'),
     allergies TEXT,
     conditions TEXT,
-    weight DOUBLE(5,2),
+    weight INT,
     microchip VARCHAR(255),
     photo VARCHAR(255),
     emergy_contact VARCHAR(255),

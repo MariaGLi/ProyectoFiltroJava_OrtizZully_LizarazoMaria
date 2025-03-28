@@ -8,16 +8,16 @@ public class PetsDAO {
 
     String url = "jdbc:mysql://localhost:3306/Veterinary";
     String user = "root";
-    String pass = "campus2023";
+    String pass = "marializarazo";
 
     public Connection conection() throws SQLException {
         return DriverManager.getConnection(url, user, pass);
     }
 
     // Add a animal
-    public void add(pets animal){
+    public void add(pets animal) {
         String sql = "INSERT INTO pets (fullName, species, breed, age, birth_date, gender, allergies, conditions, weight, microchip, photo, emergy_contact, id_owner) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        try (Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)){
+        try (Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, animal.getFullName());
             ps.setString(2, animal.getSpecies());
             ps.setString(3, animal.getBreed());
@@ -36,7 +36,7 @@ public class PetsDAO {
             e.printStackTrace();
         }
     }
-    
+
     // see all animals
     public List<pets> getAll() {
         List<pets> list = new ArrayList<>();
@@ -53,7 +53,7 @@ public class PetsDAO {
                         rs.getString("gender"),
                         rs.getString("allergies"),
                         rs.getString("conditions"),
-                        rs.getFloat("weight"),
+                        rs.getInt("weight"),
                         rs.getString("microchip"),
                         rs.getString("photo"),
                         rs.getString("emergy_contact"),
@@ -66,14 +66,15 @@ public class PetsDAO {
         return list;
     }
 
-    /*//Delete pet
-    public void delete(int id_pet){
-        String sql = "DELETE FROM pets WHERE id_pet= " + id_pet;
-        try {
-            Connection con = conection();
-            con = conection.getConnection();
-        } catch (Exception e) {
+    public boolean deletePets(pets animal) throws SQLException {
+        String sql = "DELETE FROM Pets WHERE id_pet = ?";
+        try (Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, animal.getId_pet());
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    }*/
+        return false;
+    }
 
 }

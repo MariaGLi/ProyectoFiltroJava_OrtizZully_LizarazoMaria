@@ -10,7 +10,7 @@ public class pets {
     private String gender;
     private String allergies;
     private String conditions;
-    private Float weight;
+    private int weight;
     private String microchip;
     private String photo;
     private String emergy_contact;
@@ -19,7 +19,7 @@ public class pets {
     public pets() {
     }
 
-    public pets(int id_pet, String fullName, String species, String breed, int age, String birth_date, String gender, String allergies, String conditions, Float weight, String microchip, String photo, String emergy_contact, int id_owner) {
+    public pets(int id_pet, String fullName, String species, String breed, int age, String birth_date, String gender, String allergies, String conditions, int weight, String microchip, String photo, String emergy_contact, int id_owner) {
         this.id_pet = id_pet;
         this.fullName = fullName;
         this.species = species;
@@ -108,11 +108,11 @@ public class pets {
         this.conditions = conditions;
     }
 
-    public Float getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(Float weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 

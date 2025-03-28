@@ -27,6 +27,7 @@ public class aditionalServices extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         enter = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -71,6 +72,8 @@ public class aditionalServices extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/banoIcon.png"))); // NOI18N
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/Imagenes/bañoIcon.png"))); // NOI18N
+
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
         RightLayout.setHorizontalGroup(
@@ -83,6 +86,8 @@ public class aditionalServices extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RightLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
@@ -100,8 +105,13 @@ public class aditionalServices extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RightLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(RightLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 55, Short.MAX_VALUE))))
         );
 
         left.add(Right);
@@ -123,30 +133,25 @@ public class aditionalServices extends javax.swing.JFrame {
             }
         });
         left.add(enter);
-        enter.setBounds(680, 360, 62, 34);
+        enter.setBounds(680, 360, 62, 29);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("ServicesType: ");
         left.add(jLabel3);
         jLabel3.setBounds(430, 150, 120, 25);
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
         left.add(jTextField1);
-        jTextField1.setBounds(570, 150, 190, 28);
+        jTextField1.setBounds(570, 150, 190, 22);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("DescripcionServices: ");
         left.add(jLabel6);
         jLabel6.setBounds(430, 200, 170, 25);
-
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         left.add(jTextField2);
         jTextField2.setBounds(610, 200, 150, 60);
 
@@ -154,17 +159,14 @@ public class aditionalServices extends javax.swing.JFrame {
         jLabel7.setText("DateTime:");
         left.add(jLabel7);
         jLabel7.setBounds(430, 280, 90, 25);
-
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
         left.add(jTextField3);
-        jTextField3.setBounds(570, 280, 190, 28);
+        jTextField3.setBounds(570, 280, 190, 22);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jButton1.setText("Cancel");
         left.add(jButton1);
-        jButton1.setBounds(460, 360, 80, 34);
+        jButton1.setBounds(460, 360, 80, 29);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -199,7 +201,7 @@ public class aditionalServices extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jButton2.setText("List");
         left.add(jButton2);
-        jButton2.setBounds(580, 360, 52, 34);
+        jButton2.setBounds(580, 360, 72, 29);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,6 +278,7 @@ public class aditionalServices extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

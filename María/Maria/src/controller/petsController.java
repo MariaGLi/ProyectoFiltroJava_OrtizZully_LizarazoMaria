@@ -2,7 +2,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.PetsDAO;
@@ -16,8 +20,11 @@ public class petsController implements ActionListener {
     Vista vista = new Vista();
     DefaultTableModel modelo = new DefaultTableModel();
 
-    public petsController(Vista v) {
-        this.vista = v;
+    public petsController(Vista vista, PetsDAO petdao, pets pet) {
+        this.vista = vista;
+        this.petdao = petdao;
+        this.pet = pet;
+
         this.vista.btnListar.addActionListener(this);
         this.vista.btnGuardar.addActionListener(this);
     }
@@ -27,42 +34,39 @@ public class petsController implements ActionListener {
         if (e.getSource() == vista.btnListar) {
             list(vista.table);
         }
-        if(e.getSource() == vista.btnGuardar){
-            Add();
+
+        if (e.getSource() == vista.btnGuardar) {
+            pet.setFullName(vista.txtfullName.getText());
+            pet.setSpecies(vista.txtSpecie.getText());
+            pet.setBreed(vista.txtBreed.getText());
+            pet.setAge(Integer.parseInt(vista.txtAge.getText()));
+            pet.setBirth_date(vista.txtbirthDate.getText());
+            pet.setGender(vista.txtGender.getText());
+            pet.setAllergies(vista.txtAllergies.getText());
+            pet.setConditions(vista.txtConditions.getText());
+            pet.setWeight(Integer.parseInt(vista.txtWeight.getText()));
+            pet.setMicrochip(vista.txtmicroChip.getText());
+            pet.setPhoto(vista.txtPhoto.getText());
+            pet.setEmergy_contact(vista.txtemergyContact.getText());
+            pet.setId_owner(Integer.parseInt(vista.txtidOwner.getText()));
+            petdao.add(pet);
+            list(vista.table);
         }
-    }
 
-    //Add pet
-    public void Add() {
-        String fullName = vista.txtfullName.getText();
-        String species = vista.txtSpecie.getText();
-        String breed = vista.txtBreed.getText();
-        int ages = Integer.parseInt(vista.txtAge.getText());
-        String birth_date = vista.txtbirthDate.getText();
-        String gender = vista.txtGender.getText();
-        String allergies = vista.txtAllergies.getText();
-        String conditions = vista.txtConditions.getText();
-        //String weight = Float.toString(weight());
-        String microchip = vista.txtmicroChip.getText();
-        String photo = vista.txtPhoto.getText();
-        String emergy_contact = vista.txtemergyContact.getText();
-        int id_owner = Integer.parseInt(vista.txtWeight.getText());        
-
-        pet.setFullName(fullName);
-        pet.setSpecies(species);
-        pet.setBreed(breed);
-        pet.setAge(ages);
-        pet.setBirth_date(birth_date);
-        pet.setGender(gender);
-        pet.setAllergies(allergies);
-        pet.setConditions(conditions);
-        //pet.setWeight(weight);
-        pet.setMicrochip(microchip);
-        pet.setPhoto(photo);
-        pet.setEmergy_contact(emergy_contact);
-        pet.setId_owner(id_owner);
-        
-        petdao.add(pet);
+        if (e.getSource() == vista.btnEliminar) {
+            pet.setId_pet(Integer.parseInt(vista.txtID.getText()));
+            try {
+                if (petdao.deletePets(pet)) {
+                    JOptionPane.showMessageDialog(null, "Pet delete");
+                    list(vista.table); 
+                    vista.txtID.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Pet not delete");
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+        }
     }
 
     //List pet
@@ -91,9 +95,11 @@ public class petsController implements ActionListener {
     }
 
     public static void main(String[] args) {
-        Vista v = new Vista();
-        petsController pc = new petsController(v);
-        v.setVisible(true);
-        v.setLocationRelativeTo(v);
+        Vista vista = new Vista();
+        PetsDAO petdao = new PetsDAO();
+        pets pet = new pets();
+        petsController pc = new petsController(vista, petdao, pet);
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(vista);
     }
 }
