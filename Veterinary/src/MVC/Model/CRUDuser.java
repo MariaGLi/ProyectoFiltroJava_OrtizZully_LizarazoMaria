@@ -17,9 +17,9 @@ public class CRUDuser extends Conexion{
         try{
             ps = conec.prepareStatement(sql); 
             ps.setString(1, use.getFull_name());
-            ps.setInt(2,use.getIdentification());
+            ps.setString(2,use.getIdentification());
             ps.setString(3, use.getAddres());
-            ps.setInt(4, use.getPhone());
+            ps.setString(4, use.getPhone());
             ps.setString(5, use.getEmail());
             ps.setString(6, use.getRole());
             return true;
@@ -39,9 +39,9 @@ public class CRUDuser extends Conexion{
         try{
             ps = conec.prepareStatement(sql);
             ps.setString(1, use.getFull_name());
-            ps.setInt(2,use.getIdentification());
+            ps.setString(2,use.getIdentification());
             ps.setString(3, use.getAddres());
-            ps.setInt(4, use.getPhone());
+            ps.setString(4, use.getPhone());
             ps.setString(5, use.getEmail());
             ps.setString(6, use.getRole());
             ps.setInt(7, use.getId_user());
@@ -86,9 +86,9 @@ public class CRUDuser extends Conexion{
             if(rs.next()){
                 use.setId_user(rs.getInt("id_user"));
                 use.setFull_name(rs.getString("full_name"));
-                use.setIdentification(rs.getInt("identification"));
+                use.setIdentification(rs.getString("identification"));
                 use.setAddres(rs.getString("address"));
-                use.setPhone(rs.getInt("phone"));
+                use.setPhone(rs.getString("phone"));
                 use.setEmail(rs.getString("email"));
                 use.setRole(rs.getString("rol"));
                 return true;
