@@ -256,7 +256,9 @@ public class MenuAdmi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogoutActionPerformed
-        // TODO add your handling code here:
+        LoginView lv = new LoginView();
+        lv.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btLogoutActionPerformed
 
     private void btManageAppointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btManageAppointActionPerformed

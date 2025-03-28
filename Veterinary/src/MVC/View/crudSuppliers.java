@@ -115,13 +115,13 @@ public class crudSuppliers extends javax.swing.JFrame {
         TableSu.setBackground(new java.awt.Color(255, 255, 255));
         TableSu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Full Name", "Email", "Identification", "Order Name"
+                "ID", "Full Name", "Email", "Identification", "Order Name", "ID Administration"
             }
         ));
         jScrollPane1.setViewportView(TableSu);
