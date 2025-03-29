@@ -1,7 +1,7 @@
 package maria;
 
-import modelo.PetsDAO;
 import java.sql.*;
+import modelo.additionalServicesDAO;
 
 /**
  *@author Maria Lizarazo
@@ -9,7 +9,7 @@ import java.sql.*;
 public class main {
 
     public static void main(String[] args) {
-        PetsDAO dao = new PetsDAO();
+        additionalServicesDAO dao = new additionalServicesDAO();
         try {
             Connection con = dao.conection();
             if(con!= null){

@@ -9,7 +9,7 @@ public class PetsDAO {
     
     String url = "jdbc:mysql://localhost:3306/Veterinary";
     String user = "root";
-    String pass = "campus2023";
+    String pass = "marializarazo";
 
     public Connection conection() throws SQLException {
         return DriverManager.getConnection(url, user, pass);
@@ -91,7 +91,7 @@ public class PetsDAO {
         try(Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)){
             ps.setInt(1, id);
             ps.execute();
-            System.out.println("Pet delete.");
+            JOptionPane.showMessageDialog(null, "Pet delete.");
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error when deleting the mascot" + e);
         }
