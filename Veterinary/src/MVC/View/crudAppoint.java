@@ -279,8 +279,8 @@ public class crudAppoint extends javax.swing.JFrame {
     }//GEN-LAST:event_txtReasonAppoinActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        MenuAdmi menuA = new MenuAdmi();
-        menuA.setVisible(true);
+        MenuAdmi menu = new MenuAdmi();
+        menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 

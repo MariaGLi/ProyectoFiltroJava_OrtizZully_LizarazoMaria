@@ -41,6 +41,7 @@ public class ControllerMedications implements ActionListener{
             medi.setQuantity_in_stock(Integer.parseInt(viewMedi.txtStockMedi.getText()));
             medi.setExpiration_date(viewMedi.txtExpiMedi.getText());
             medi.setQuantity_entered(Integer.parseInt(viewMedi.txtEnteMedi.getText()));
+            medi.setId_supplier(Integer.parseInt(viewMedi.txtIdSuMedi.getText()));
             if(dao.InsertMedi(medi)){
                 JOptionPane.showMessageDialog(null, "Medication add");
             }else{
@@ -56,7 +57,7 @@ public class ControllerMedications implements ActionListener{
             medi.setQuantity_in_stock(Integer.parseInt(viewMedi.txtStockMedi.getText()));
             medi.setExpiration_date(viewMedi.txtExpiMedi.getText());
             medi.setQuantity_entered(Integer.parseInt(viewMedi.txtEnteMedi.getText()));
-            
+            medi.setId_supplier(Integer.parseInt(viewMedi.txtIdSuMedi.getText()));
             if(dao.UpdateMedi(medi)){
                 JOptionPane.showMessageDialog(null, "User update");
             }else{

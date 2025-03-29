@@ -14,7 +14,7 @@ public class AppointDAO extends Conexion{
         PreparedStatement ps = null;
         Connection conec = getConexion();
         
-        String sql = "INSERT INTO Medical_consultations (date_time, id_veterinarian, id_pet, id_owner, reason, diagnosis, recommendations, prescription, required_precedures, status_consul VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Medical_consultations (date_time, id_veterinarian, id_pet, id_owner, reason, diagnosis, recommendations, prescription, required_precedures, status_consul) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try{
             ps = conec.prepareStatement(sql); 
@@ -55,7 +55,7 @@ public class AppointDAO extends Conexion{
             ps.setString(8, mc.getPrescription());
             ps.setString(9, mc.getRequired_precedures());
             ps.setString(10, mc.getStatus_consul());
-            ps.setInt(1, mc.getId_consultation());
+            ps.setInt(11, mc.getId_consultation());
             ps.execute();
             return true;
         }catch (SQLException e){
@@ -69,7 +69,7 @@ public class AppointDAO extends Conexion{
         PreparedStatement ps = null;
         Connection conec = getConexion();
         
-        String sql = "DELETE FROM Medical_consultations Where id_consultation = ?";
+        String sql = "DELETE FROM Medical_consultations WHERE id_consultation = ?";
         
         try{
             ps = conec.prepareStatement(sql);
@@ -105,7 +105,7 @@ public class AppointDAO extends Conexion{
                 mc.setDiagnosis(rs.getString("diagnosis"));
                 mc.setRecommendations(rs.getString("recommendations"));
                 mc.setPrescription(rs.getString("prescription"));
-                mc.setRequired_precedures(rs.getString("prequired_precedures"));
+                mc.setRequired_precedures(rs.getString("required_precedures"));
                 mc.setStatus_consul(rs.getString("status_consul"));
                 list.add(mc);
             }

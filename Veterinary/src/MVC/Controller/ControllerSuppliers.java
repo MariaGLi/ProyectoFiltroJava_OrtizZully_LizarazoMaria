@@ -42,13 +42,20 @@ public class ControllerSuppliers implements ActionListener{
             su.setIdentification(viewSu.txtIdenSu.getText());
             su.setEmail(viewSu.txtEmailSu.getText());
             su.setOrder_name(viewSu.txtOrderSu.getText());
-            su.setId_administrator(Integer.parseInt(viewSu.txtIdAdmin.getText()));
+            int idAdmin = Integer.parseInt(viewSu.txtIdAdmin.getText());
+            su.setId_administrator(idAdmin);
             
-            if(dao.InsertSu(su)){
-                JOptionPane.showMessageDialog(null, "Supplier add");
-            }else{
-                JOptionPane.showMessageDialog(null, "Supplier add");
+            // Here will check if the id_administrator exists in Users
+            if (dao.existsAdministrator(idAdmin)){
+                if(dao.InsertSu(su)){
+                JOptionPane.showMessageDialog(null, "Supplier added");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Supplier not added");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid administrator ID:" + idAdmin + "doesn't exist");
             }
+            
         }
         
         if(e.getSource() == viewSu.btnUpdateSu){
@@ -79,6 +86,8 @@ public class ControllerSuppliers implements ActionListener{
             ListSu(viewSu.TableSu);
         }
     }
+    
+    
     
     private void ListSu(JTable table){
         model = (DefaultTableModel)table.getModel();

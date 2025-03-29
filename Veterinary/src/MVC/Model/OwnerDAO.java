@@ -11,7 +11,7 @@ public class OwnerDAO extends Conexion{
         PreparedStatement ps = null;
         Connection conec = getConexion();
         
-        String sql = "UPDATE Users SET full_name = ?, identification = ?, address = ?, phone = ?,email = ?,rol = ? WHERE id_user = ? AND rol = 'owner'";
+        String sql = "UPDATE Users SET full_name = ?, identification = ?, address = ?, phone = ?,email = ? WHERE id_user = ? AND rol = 'owner'";
         
         try{
             ps = conec.prepareStatement(sql);

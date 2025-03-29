@@ -22,7 +22,7 @@ public class SupplierDAO extends Conexion{
             ps.setString(2,su.getIdentification());
             ps.setString(3, su.getEmail());
             ps.setString(4, su.getOrder_name());
-            ps.setString(5, su.getIdentification());
+            ps.setInt(5, su.getId_administrator());
             ps.execute();
             return true;
             
@@ -45,7 +45,7 @@ public class SupplierDAO extends Conexion{
             ps.setString(2,su.getIdentification());
             ps.setString(3, su.getEmail());
             ps.setString(4, su.getOrder_name());
-            ps.setString(5, su.getIdentification());
+            ps.setInt(5, su.getId_administrator());
             ps.setInt(6, su.getId_supplier());
             ps.execute();
             return true;
@@ -99,5 +99,23 @@ public class SupplierDAO extends Conexion{
             System.err.println(e);
         }
         return list;
+    }
+    
+    public boolean existsAdministrator(int idAdmin){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conec = getConexion();
+        
+        String sql = "SELECT id_user FROM Users WHERE id_user = ?";
+        
+        try{
+            ps = conec.prepareStatement(sql);
+            ps.setInt(1, idAdmin);
+            rs = ps.executeQuery();
+            return rs.next(); 
+        }catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
     }
 }

@@ -36,6 +36,7 @@ public class ControllerOwner implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource() == viewOwner.btnUpdateOwner){
+            user.setId_user(Integer.parseInt(viewOwner.txtIdOwner.getText()));
             user.setFull_name(viewOwner.txtNameOwner.getText());
             user.setIdentification(viewOwner.txtIdenOwner.getText());
             user.setAddres(viewOwner.txtAddressOwner.getText());

@@ -8,16 +8,19 @@ import MVC.Controller.ControllerAppoint;
 import MVC.Controller.ControllerMedications;
 import MVC.Controller.ControllerOwner;
 import MVC.Controller.ControllerSuppliers;
+import MVC.Controller.ControllerSupplies;
 import MVC.Controller.ControllerUser;
 import MVC.Model.AppointDAO;
 import MVC.Model.MedicationsDAO;
 import MVC.Model.OwnerDAO;
 import MVC.Model.SupplierDAO;
+import MVC.Model.SuppliesDAO;
 import MVC.Model.User;
 import MVC.Model.UserDAO;
 import MVC.Model.medical_consultations;
 import MVC.Model.medications;
 import MVC.Model.suppliers;
+import MVC.Model.supplies;
 
 /**
  *
@@ -163,6 +166,11 @@ public class MenuAdmi extends javax.swing.JFrame {
         jButton3.setText("Manage Supplies");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setPreferredSize(new java.awt.Dimension(157, 32));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(0, 102, 102));
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -321,6 +329,15 @@ public class MenuAdmi extends javax.swing.JFrame {
         cs.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        crudSupplies cs = new crudSupplies();
+        SuppliesDAO dao = new SuppliesDAO();
+        supplies sup = new supplies();
+        ControllerSupplies ctrlSup = new ControllerSupplies(dao, sup, cs);
+        cs.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
