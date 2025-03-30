@@ -103,3 +103,8 @@ public class petsController implements ActionListener {
         vista.setLocationRelativeTo(vista);
     }
 }
+/*
+  Vista abrir = new Vista();
+  abrir.setVisible(true);
+  this.setVisible(false);
+*/

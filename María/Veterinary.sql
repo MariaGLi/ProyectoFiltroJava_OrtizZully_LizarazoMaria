@@ -145,6 +145,8 @@ INSERT INTO Users (full_name, identification, address, phone, email, rol) VALUES
 ('Ana García', '123456789', 'Calle Principal 123', '555-111-2222', 'ana.garcia@email.com', 'owner'),
 ('Juan Rodríguez', '789123456', 'Transversal Norte 101', '555-777-8888', 'juan.rodriguez@email.com', 'owner'),
 ('Isabella Torres', '159357468', 'Callejón Oeste 404', '555-444-5555', 'isabella.torres@email.com', 'owner'),
+('Carlos Rodríguez', '112233445', 'Carrera 789, Ciudad C', '555-9012', 'carlos.rodriguez@example.com', 'veterinarian'),
+('Laura Martínez', '554433221', 'Diagonal 101, Ciudad D', '555-3456', 'laura.martinez@example.com', 'veterinarian'),
 ('Mateo Castro', '975318642', 'Bulevar Sur 707', '555-123-7890', 'mateo.castro@email.com', 'owner');
 
 INSERT INTO Pets (fullName, species, breed, age, birth_date, gender, allergies, conditions, weight, microchip, photo, emergy_contact, id_owner) VALUES
@@ -158,3 +160,13 @@ INSERT INTO Pets (fullName, species, breed, age, birth_date, gender, allergies, 
 ('Simba', 'Cat', 'Bengal', 3, '2021-04-12', 'male', 'Soy', 'None', 5.10, '776655443322119', 'simba.tiff', '555-222-3333', 2),
 ('Daisy', 'Dog', 'Poodle', 7, '2017-09-18', 'female', 'Beef', 'Arthritis', 8.90, '554433221199887', 'daisy.heic', '555-444-5555', 3),
 ('Oliver', 'Cat', 'Sphynx', 1, '2023-06-02', 'male', 'Dust', 'Sensitive Skin', 3.50, '332211998877665', 'oliver.raw', '555-666-7777', 1);
+
+INSERT INTO Medical_consultations (date_time, id_veterinarian, id_pet, id_owner, reason, diagnosis, recommendations, prescription, required_precedures, status_consul) 
+VALUES 
+('2025-03-30 10:00:00', 1, 1, 1, 'Pérdida de apetito y letargo', 'Gastroenteritis', 'Proporcionar dieta blanda por 5 días', 'Omeprazol 20mg/día por 3 días', 'Ninguno', 'completed'),
+('2025-03-31 14:30:00', 2, 2, 2, 'Herida abierta en la pata', 'Infección leve', 'Mantener herida limpia y desinfectar', 'Antibióticos tópicos', 'Sutura de la herida', 'scheduled'),
+('2025-04-01 09:00:00', 3, 3, 3, 'Chequeo general', 'Paciente sano', 'Ejercicio regular y dieta equilibrada', 'Ninguno', 'Ninguno', 'completed'),
+('2025-04-02 15:00:00', 4, 4, 4, 'Tos frecuente', 'Tos de las perreras', 'Aislamiento y descanso', 'Jarabe expectorante', 'Radiografía torácica', 'in_progress'),
+('2025-04-03 11:00:00', 2, 5, 5, 'Pérdida de peso repentina', 'Parásitos intestinales', 'Desparasitación inmediata', 'Albendazol 50mg/kg por 3 días', 'Análisis de heces', 'canceled');
+
+select * from Medical_consultations;

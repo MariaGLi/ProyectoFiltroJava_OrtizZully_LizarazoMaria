@@ -1,7 +1,7 @@
 package maria;
 
 import java.sql.*;
-import modelo.additionalServicesDAO;
+import modelo.cancelConsulDAO;
 
 /**
  *@author Maria Lizarazo
@@ -9,7 +9,7 @@ import modelo.additionalServicesDAO;
 public class main {
 
     public static void main(String[] args) {
-        additionalServicesDAO dao = new additionalServicesDAO();
+        cancelConsulDAO dao = new cancelConsulDAO();
         try {
             Connection con = dao.conection();
             if(con!= null){
