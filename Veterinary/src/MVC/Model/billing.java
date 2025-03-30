@@ -1,25 +1,27 @@
 package MVC.Model;
 
 public class billing {
+    private int id_bill;
     private int id_veterinarian;
     private int id_owner;
+    private int id_consultation;
     private String issue_date;
     private String description;
     private int quantity;
     private Float unit_value;
     private Float subtotal;
     private Float tax;
-    private String total;
-    private String cufe;
-    private String qr_code;
+    private Float total;
     private String statusBill;
 
     public billing() {
     }
 
-    public billing(int id_veterinarian, int id_owner, String issue_date, String description, int quantity, Float unit_value, Float subtotal, Float tax, String total, String cufe, String qr_code, String statusBill) {
+    public billing(int id_bill, int id_veterinarian, int id_owner, int id_consultation, String issue_date, String description, int quantity, Float unit_value, Float subtotal, Float tax, Float total, String statusBill) {
+        this.id_bill = id_bill;
         this.id_veterinarian = id_veterinarian;
         this.id_owner = id_owner;
+        this.id_consultation = id_consultation;
         this.issue_date = issue_date;
         this.description = description;
         this.quantity = quantity;
@@ -27,9 +29,15 @@ public class billing {
         this.subtotal = subtotal;
         this.tax = tax;
         this.total = total;
-        this.cufe = cufe;
-        this.qr_code = qr_code;
         this.statusBill = statusBill;
+    }
+
+    public int getId_bill() {
+        return id_bill;
+    }
+
+    public void setId_bill(int id_bill) {
+        this.id_bill = id_bill;
     }
 
     public int getId_veterinarian() {
@@ -46,6 +54,14 @@ public class billing {
 
     public void setId_owner(int id_owner) {
         this.id_owner = id_owner;
+    }
+
+    public int getId_consultation() {
+        return id_consultation;
+    }
+
+    public void setId_consultation(int id_consultation) {
+        this.id_consultation = id_consultation;
     }
 
     public String getIssue_date() {
@@ -96,28 +112,12 @@ public class billing {
         this.tax = tax;
     }
 
-    public String getTotal() {
+    public Float getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(Float total) {
         this.total = total;
-    }
-
-    public String getCufe() {
-        return cufe;
-    }
-
-    public void setCufe(String cufe) {
-        this.cufe = cufe;
-    }
-
-    public String getQr_code() {
-        return qr_code;
-    }
-
-    public void setQr_code(String qr_code) {
-        this.qr_code = qr_code;
     }
 
     public String getStatusBill() {
@@ -127,5 +127,9 @@ public class billing {
     public void setStatusBill(String statusBill) {
         this.statusBill = statusBill;
     }
+
+    
+
+    
     
 }

@@ -21,69 +21,34 @@ public class LoginView extends javax.swing.JFrame {
     private void initComponents() {
 
         left = new javax.swing.JPanel();
-        Right = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         LabelUser = new javax.swing.JLabel();
         imputUser = new javax.swing.JTextField();
         labelPass = new javax.swing.JLabel();
         InputPass = new javax.swing.JPasswordField();
         enter = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(450, 600));
 
-        left.setBackground(new java.awt.Color(255, 255, 255));
+        left.setBackground(new java.awt.Color(96, 163, 188));
         left.setForeground(new java.awt.Color(255, 255, 255));
-        left.setPreferredSize(new java.awt.Dimension(800, 500));
+        left.setPreferredSize(new java.awt.Dimension(450, 600));
         left.setLayout(null);
 
-        Right.setBackground(new java.awt.Color(0, 102, 102));
-        Right.setPreferredSize(new java.awt.Dimension(400, 500));
-
-        jLabel4.setFont(new java.awt.Font("Segoe Script", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Happy Feet");
-
-        javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
-        Right.setLayout(RightLayout);
-        RightLayout.setHorizontalGroup(
-            RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RightLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
-        );
-        RightLayout.setVerticalGroup(
-            RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RightLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addContainerGap(112, Short.MAX_VALUE))
-        );
-
-        left.add(Right);
-        Right.setBounds(0, 0, 400, 500);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("LOGIN");
+        jLabel1.setFont(new java.awt.Font("Segoe Script", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Happy Feet");
         left.add(jLabel1);
-        jLabel1.setBounds(550, 50, 120, 40);
+        jLabel1.setBounds(70, 10, 350, 60);
 
-        LabelUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LabelUser.setForeground(new java.awt.Color(0, 0, 0));
+        LabelUser.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        LabelUser.setForeground(new java.awt.Color(255, 255, 255));
         LabelUser.setText("User");
         left.add(LabelUser);
-        LabelUser.setBounds(440, 120, 40, 20);
+        LabelUser.setBounds(90, 350, 60, 20);
 
         imputUser.setBackground(new java.awt.Color(255, 255, 255));
         imputUser.setForeground(new java.awt.Color(102, 102, 102));
@@ -94,40 +59,45 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
         left.add(imputUser);
-        imputUser.setBounds(440, 150, 330, 30);
+        imputUser.setBounds(90, 380, 250, 40);
 
-        labelPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelPass.setForeground(new java.awt.Color(0, 0, 0));
+        labelPass.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        labelPass.setForeground(new java.awt.Color(255, 255, 255));
         labelPass.setText("Password");
         left.add(labelPass);
-        labelPass.setBounds(440, 200, 80, 20);
+        labelPass.setBounds(90, 430, 100, 26);
 
         InputPass.setBackground(new java.awt.Color(255, 255, 255));
         left.add(InputPass);
-        InputPass.setBounds(440, 230, 330, 30);
+        InputPass.setBounds(90, 460, 250, 40);
 
-        enter.setBackground(new java.awt.Color(0, 102, 102));
-        enter.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        enter.setBackground(new java.awt.Color(44, 62, 80));
+        enter.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         enter.setForeground(new java.awt.Color(255, 255, 255));
-        enter.setText("Login");
+        enter.setText("Log in");
+        enter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterActionPerformed(evt);
+            }
+        });
         left.add(enter);
-        enter.setBounds(580, 300, 90, 27);
+        enter.setBounds(160, 520, 110, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/View/img/login.png"))); // NOI18N
+        left.add(jLabel3);
+        jLabel3.setBounds(90, 70, 260, 260);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(left, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(left, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(left, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,6 +106,10 @@ public class LoginView extends javax.swing.JFrame {
     private void imputUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imputUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_imputUserActionPerformed
+
+    private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,13 +148,11 @@ public class LoginView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPasswordField InputPass;
     public javax.swing.JLabel LabelUser;
-    private javax.swing.JPanel Right;
     public javax.swing.JButton enter;
     public javax.swing.JTextField imputUser;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel labelPass;
-    private javax.swing.JPanel left;
+    public javax.swing.JPanel left;
     // End of variables declaration//GEN-END:variables
 }

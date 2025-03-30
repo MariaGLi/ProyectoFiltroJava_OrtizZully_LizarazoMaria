@@ -104,4 +104,26 @@ public class UserDAO extends Conexion{
         }
         return list;
     }
+    
+    
+    public List<String> getUserByRole(String role){
+        List<String> users = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conec = getConexion();
+        
+        String sql = "SELECT id_user, full_name FROM Users WHERE role = ?";
+        
+        try{
+            ps = conec.prepareStatement(sql);
+            ps.setString(1, role);
+            rs = ps.executeQuery();
+            while (rs.next()){
+               users.add(rs.getInt("id_user") + " - " + rs.getString("full_name"));
+            }
+        }catch (SQLException e){
+            System.err.println(e);
+        }
+        return users;
+    }
 }

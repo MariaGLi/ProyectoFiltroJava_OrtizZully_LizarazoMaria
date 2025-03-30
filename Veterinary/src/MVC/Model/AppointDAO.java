@@ -115,4 +115,27 @@ public class AppointDAO extends Conexion{
         return list;
     }
     
+    public List<String> getConsultations(){
+        List<String> consultations = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conec = getConexion();
+        
+        String sql = "SELECT mc.id_consultation, p.fullName AS pet_name"
+                + "FROM Medical_consultation mc"
+                + "JOIN Pets p ON mc.id_pet = p.id_pet";
+        
+        try{
+            ps = conec.prepareStatement(sql);
+            ps.setString(1, sql);
+            rs = ps.executeQuery();
+            while (rs.next()){
+               consultations.add(rs.getInt("id_consultation") + " - Consultation for " + rs.getString("pet_name"));
+            }
+        }catch (SQLException e){
+            System.err.println(e);
+        }
+        return consultations;
+    }
+    
 }
