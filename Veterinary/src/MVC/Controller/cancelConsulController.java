@@ -19,6 +19,7 @@ public class cancelConsulController implements ActionListener {
         this.view = view;
         this.dao = delcondao;
         this.medicon = medicon;
+        
         this.view.btncancelApp.addActionListener(this);
     }
 
@@ -26,11 +27,6 @@ public class cancelConsulController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == view.btncancelApp){
             dao.deleteConsul(Integer.parseInt(view.txtidConsultation.getText()));
-            if(dao.deleteConsul(medicon)){
-                JOptionPane.showMessageDialog(null, "Owner delete");
-            } else {
-                JOptionPane.showMessageDialog(null, "Owner not delete");
-            }
         }
     }
 }

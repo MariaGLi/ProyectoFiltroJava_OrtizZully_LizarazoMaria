@@ -11,13 +11,13 @@ public class listConsulDAO extends Conexion{
 
     
 
-    public List<medical_consultations> getAll(int id) {
+    public List<medical_consultations> getAllvaccines(int id) {
         List<medical_consultations> list = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conec = getConexion();
         
-        String sql = "SELECT id_consultations, id_pet, id_owner, date_time, status_consul FROM medical_consultations WHERE id_veterinarian = ?";
+        String sql = "SELECT id_consultation, id_pet, id_owner, date_time, status_consul FROM medical_consultations WHERE id_veterinarian = ?";
         
         try { 
             ps = conec.prepareStatement(sql);

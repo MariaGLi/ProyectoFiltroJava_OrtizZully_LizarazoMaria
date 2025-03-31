@@ -31,6 +31,4 @@ public class cancelConsulDAO extends Conexion{
     public boolean deleteConsul(medical_consultations medicon) {
         return deleteConsul(medicon.getId_consultation());
     }
-
-    
 }

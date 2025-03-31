@@ -53,6 +53,7 @@ CREATE TABLE Vaccines (
     id_pet INT,
     FOREIGN KEY (id_pet) REFERENCES Pets (id_pet)
 );
+select * from Vaccines;
 
 CREATE TABLE Medical_consultations (
 	id_consultation INT AUTO_INCREMENT PRIMARY KEY,
@@ -70,6 +71,8 @@ CREATE TABLE Medical_consultations (
     FOREIGN KEY (id_owner) REFERENCES Users (id_user),
     FOREIGN KEY (id_veterinarian) REFERENCES Users (id_user)
 );
+select * from Medical_consultations;
+SELECT id_consultation, id_pet, id_owner, date_time, status_consul FROM medical_consultations WHERE id_veterinarian = 2;
 
 CREATE TABLE Surgeries (
 	id_surgery INT AUTO_INCREMENT PRIMARY KEY,
@@ -168,8 +171,8 @@ INSERT INTO Suppliers (full_name, identification, email, order_name, id_administ
  ('Paracetanol', 'Analgesic', 'Pfizer', 100, '2023-01-02', 100, 1),
  ('Amoxicillin', 'Antibiotic', 'Bayer', 200, '2024-06-15', 150, 2);
  
-INSERT INTO Pets (fullName, species, breed, age, birth_date, gender, allergies, conditions, weight, microchip, photo, emergy_contact, id_owner) 
-VALUES ('Max', 'Dog', 'Labrador', 3, '2020-01-01', 'male', NULL, NULL, 25.5, NULL, NULL, NULL, 2),
+INSERT INTO Pets (fullName, species, breed, age, birth_date, gender, allergies, conditions, weight, microchip, photo, emergy_contact, id_owner) VALUES
+('Max', 'Dog', 'Labrador', 3, '2020-01-01', 'male', NULL, NULL, 25.5, NULL, NULL, NULL, 2),
 ('Bella', 'Cat', 'Siamese', 2, '2021-05-15', 'female', 'None', 'Healthy', 4.2, '1234XYZ', NULL, 'Maria Lizarazo', 2),
 ('Max', 'Dog', 'Golden Retriever', 3, '2021-05-15', 'male', 'Pollen', 'None', 25.50, '123456789012345', 'max.jpg', '555-123-4567', 4),
 ('Luna', 'Cat', 'Siamese', 2, '2022-08-20', 'female', 'None', 'Asthma', 4.20, '987654321098765', 'luna.png', '555-987-6543', 2),
@@ -182,15 +185,13 @@ VALUES ('Max', 'Dog', 'Labrador', 3, '2020-01-01', 'male', NULL, NULL, 25.5, NUL
 ('Daisy', 'Dog', 'Poodle', 7, '2017-09-18', 'female', 'Beef', 'Arthritis', 8.90, '554433221199887', 'daisy.heic', '555-444-5555', 4),
 ('Oliver', 'Cat', 'Sphynx', 1, '2023-06-02', 'male', 'Dust', 'Sensitive Skin', 3.50, '332211998877665', 'oliver.raw', '555-666-7777', 2);
  
- INSERT INTO Vaccines (vaccine_type, manufacturer, lot, administration_date, expiration_date, entry_date, next_dose_date, quantity_in_stock, quantity_entered, id_pet) 
-VALUES ('Rabies', 'Merck', 'LOT123', '2023-01-01', '2023-12-01', '2023-01-01', '2024-01-01', 50, 50, 1),
+INSERT INTO Vaccines (vaccine_type, manufacturer, lot, administration_date, expiration_date, entry_date, next_dose_date, quantity_in_stock, quantity_entered, id_pet) VALUES
+('Rabies', 'Merck', 'LOT123', '2023-01-01', '2023-12-01', '2023-01-01', '2024-01-01', 50, 50, 1),
 ('Feline Distemper', 'Bayer', 'LOT456', '2023-03-10', '2024-03-10', '2023-03-10', '2024-03-10', 30, 30, 2);
  
-INSERT INTO Medical_consultations (date_time, id_veterinarian, id_pet, id_owner, reason, diagnosis, recommendations, prescription, required_precedures, status_consul) 
-VALUES ('2023-10-01 10:00:00', 3, 1, 2, 'Checkup', 'Healthy', 'Annual checkup recommended', NULL, NULL, 'completed'),
-('2023-11-15 15:30:00', 6, 2, 2, 'Coughing and sneezing', 'Mild respiratory infection', 'Rest and hydration', 'Amoxicillin 5ml/day', NULL, 'in_progress');
- 
-
+INSERT INTO Medical_consultations (date_time, id_veterinarian, id_pet, id_owner, reason, diagnosis, recommendations, prescription, required_precedures, status_consul) VALUES
+('2023-10-01 10:00:00', 1, 1, 2, 'Checkup', 'Healthy', 'Annual checkup recommended', NULL, NULL, 'completed'),
+('2023-11-15 15:30:00', 2, 2, 2, 'Coughing and sneezing', 'Mild respiratory infection', 'Rest and hydration', 'Amoxicillin 5ml/day', NULL, 'in_progress');
  
 INSERT INTO Surgeries (id_consultation, surgery_type, supplies_used, recovery_time, follow_up, preparatory_info) VALUES
 (1, 'Spaying', 'Anesthesia, sutures', '7 days', 'Check wound daily', 'No food 12 hours before'),
@@ -204,9 +205,6 @@ INSERT INTO Additional_Services (id_pet, service_type, descriptionServices, date
 (1, 'bathing', 'Full grooming service', '2023-11-20 14:00:00'),
 (2, 'training', 'Basic obedience training', '2023-12-01 10:00:00');
 
-
-
-
-
- 
- 
+INSERT INTO Surgeries (id_consultation, surgery_type, supplies_used, recovery_time, follow_up, preparatory_info) VALUES
+(1, 'Appendectomy', 'Scalpel, Sutures, Surgical gloves', '1-2 semanas', 'Control postoperatorio a los 7 días', 'Ayuno 8 horas antes de la cirugía, análisis de sangre previos'),
+(2, 'Cesárea', 'Bisturí, Suturas, Gasas, Guantes quirúrgicos', '6-8 semanas', 'Consulta postoperatoria a los 15 días', 'Ayuno 12 horas antes, análisis médicos previos');

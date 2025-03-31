@@ -33,7 +33,7 @@ public class listController implements ActionListener {
     
     public void list (JTable tabla){
         modelo = (DefaultTableModel) tabla.getModel();
-        List<medical_consultations> lyst =  listcondao.getAll(1);
+        List<medical_consultations> lyst =  listcondao.getAllvaccines(Integer.parseInt(view.txtVeterinary.getText()));
         Object[] object = new Object[5];
         for (int i = 0; i < lyst.size(); i++) {
             object[0] = lyst.get(i).getId_consultation();

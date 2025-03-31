@@ -10,7 +10,7 @@ public class Conexion {
     
     private String URL = "jdbc:mysql://localhost:3306/Veterinary";
     private String USER = "root";
-    private String PASSWORD = "1092528097";
+    private String PASSWORD = "campus2023";
     
     public Connection getConexion(){
         try{

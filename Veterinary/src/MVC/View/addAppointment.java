@@ -52,12 +52,11 @@ public class addAppointment extends javax.swing.JFrame {
         txtPreesc = new javax.swing.JTextPane();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtreqPrecedures = new javax.swing.JTextPane();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        txtstatusConsul = new javax.swing.JTextPane();
         btnSave = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         txtidConsultation = new javax.swing.JTextField();
+        statusConsul = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,9 +129,6 @@ public class addAppointment extends javax.swing.JFrame {
         txtreqPrecedures.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane5.setViewportView(txtreqPrecedures);
 
-        txtstatusConsul.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane6.setViewportView(txtstatusConsul);
-
         btnSave.setBackground(new java.awt.Color(44, 62, 80));
         btnSave.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,6 +149,13 @@ public class addAppointment extends javax.swing.JFrame {
         jLabel12.setText("IdConsultation:");
 
         txtidConsultation.setBackground(new java.awt.Color(255, 255, 255));
+
+        statusConsul.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "scheduled", "in_progress", "completed", "canceled" }));
+        statusConsul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusConsulActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,14 +190,13 @@ public class addAppointment extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(jLabel12))
                         .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                                .addComponent(jScrollPane3)
-                                .addComponent(jScrollPane4)
-                                .addComponent(jScrollPane5)
-                                .addComponent(jScrollPane6))
-                            .addComponent(txtidConsultation, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3)
+                            .addComponent(jScrollPane4)
+                            .addComponent(jScrollPane5)
+                            .addComponent(txtidConsultation, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(statusConsul, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(265, 265, 265)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,17 +242,14 @@ public class addAppointment extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(txtidOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                    .addComponent(jLabel6)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(statusConsul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -277,6 +276,10 @@ public class addAppointment extends javax.swing.JFrame {
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void statusConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusConsulActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statusConsulActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,7 +337,7 @@ public class addAppointment extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
+    public javax.swing.JComboBox<String> statusConsul;
     public javax.swing.JTextPane txtDiagnosis;
     public javax.swing.JTextPane txtPreesc;
     public javax.swing.JTextPane txtReason;
@@ -345,6 +348,5 @@ public class addAppointment extends javax.swing.JFrame {
     public javax.swing.JTextField txtidOwner;
     public javax.swing.JTextField txtidPet;
     public javax.swing.JTextPane txtreqPrecedures;
-    public javax.swing.JTextPane txtstatusConsul;
     // End of variables declaration//GEN-END:variables
 }

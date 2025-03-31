@@ -36,7 +36,7 @@ public class medicalConsulController implements ActionListener{
             medicon.setRecommendations(view.txtRecommendation.getText());
             medicon.setPrescription(view.txtPreesc.getText());
             medicon.setRequired_precedures(view.txtreqPrecedures.getText());
-            medicon.setStatus_consul(view.txtstatusConsul.getText());
+            medicon.setStatus_consul((String)view.statusConsul.getSelectedItem());
             medicondao.add(medicon);
         }
     }
