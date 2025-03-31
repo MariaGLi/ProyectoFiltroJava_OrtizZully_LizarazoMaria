@@ -42,6 +42,7 @@ public class ControllerUser implements ActionListener{
             user.setEmail(viewUser.txtEmailUser.getText());
             user.setRole((String) viewUser.CbRoleUser.getSelectedItem());
             if(dao.InsertUser(user)){
+                System.out.println("no ");
                 JOptionPane.showMessageDialog(null, "User add");
             }else{
                 JOptionPane.showMessageDialog(null, "User not add");

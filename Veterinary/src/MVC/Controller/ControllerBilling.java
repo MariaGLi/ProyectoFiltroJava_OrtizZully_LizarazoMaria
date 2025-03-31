@@ -14,6 +14,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import java.io.File;
 import java.io.FileOutputStream;
+import javax.swing.JFileChooser;
 
 
 
@@ -132,7 +133,39 @@ public class ControllerBilling implements ActionListener{
         viewBill.TableBi.setModel(model);
     }
    
-    public
+    public void PDF(){
+        try{
+            List<billing> bills = dao.ListBilling();
+            
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("PDF FEEL HAPPY");
+            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fileChooser.setSelectedFile(new File("bill.pdf"));
+            int userSelecction = fileChooser.showSaveDialog(null);
+            if(userSelecction != JFileChooser.APPROVE_OPTION){
+                return;
+            }
+            
+            File SaveFile = fileChooser.getSelectedFile();
+            String ruta = SaveFile.getAbsolutePath();
+            
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, new FileOutputStream(ruta));
+            
+            doc.open();
+            
+            PdfPTable billTable = new PdfPTable(2);
+            billTable.setWidthPercentage(100);
+            billTable.setWidths(new float[]{70,30});
+            
+            Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.BOLD);
+            PdfPCell title = new PdfPCell(new Phrase("Billing - FEEL HAPPY"));
+            
+        }catch(Exception e){
+            System.err.println(e);
+            JOptionPane.showMessageDialog(null, "I'm a PDF ");
+        }
+    }
 
 }
 

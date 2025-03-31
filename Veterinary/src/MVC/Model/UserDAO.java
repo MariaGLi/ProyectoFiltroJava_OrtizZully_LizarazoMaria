@@ -112,7 +112,7 @@ public class UserDAO extends Conexion{
         ResultSet rs = null;
         Connection conec = getConexion();
         
-        String sql = "SELECT id_user, full_name FROM Users WHERE role = ?";
+        String sql = "SELECT id_user, full_name FROM Users WHERE rol= ?";
         
         try{
             ps = conec.prepareStatement(sql);
