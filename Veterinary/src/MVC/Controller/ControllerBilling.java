@@ -1,15 +1,16 @@
 
 package MVC.Controller;
 
-import MVC.Model.AppointDAO;
+import javax.swing.JTable;
 import MVC.Model.BillingDAO;
-import MVC.Model.UserDAO;
+
 import MVC.Model.billing;
 import MVC.View.crudBillings;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.util.List;
-import javax.swing.JComboBox;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,40 +23,19 @@ public class ControllerBilling implements ActionListener{
     private crudBillings viewBill;
     private DefaultTableModel model;
 
-    public ControllerBilling(BillingDAO dao, billing bill, crudBillings viewBill, DefaultTableModel model) {
+    public ControllerBilling(BillingDAO dao, billing bill, crudBillings viewBill) {
         this.dao = dao;
         this.bill = bill;
         this.viewBill = viewBill;
-        this.model = model;
         
         this.viewBill.btnDeleteBi.addActionListener(this);
         this.viewBill.btnInsertBi.addActionListener(this);
         this.viewBill.btnListBi.addActionListener(this);
         this.viewBill.btnUpdateBi.addActionListener(this);
-        
-        fillComboBoxes();
         listBilling();
+        
     }
     
-    private void fillComboBoxes(){
-        UserDAO userDAO = new UserDAO ();
-        AppointDAO consulDAO  = new AppointDAO();
-        
-        List<String> owners = userDAO.getUserByRole("owner");
-        for(String owner : owners){
-            viewBill.cbOwnerBi.addItem(owner);
-        }
-        
-        List<String> vets = userDAO.getUserByRole("veterinarian");
-        for(String vet : vets){
-            viewBill.cbVetBi.addItem(vet);
-        }
-        
-        List<String> consultations = consulDAO.getConsultations();
-        for(String consultation : consultations){
-            viewBill.cbConsulBi.addItem(consultation);
-        }
-    }
     
     private void listBilling(){
         model.setRowCount(0);
@@ -76,92 +56,100 @@ public class ControllerBilling implements ActionListener{
             object[11] = bill.getStatusBill();
             model.addRow(object);
         }
-        
-        
+        viewBill.TableBi.setModel(model);
         
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == viewBill.btnInsertBi) {
+            System.out.println("Boton insertar presionado");
+            bill.setId_veterinarian(Integer.parseInt(viewBill.txtIdVetBi.getText()));
+            bill.setId_owner(Integer.parseInt(viewBill.txtIdOwBil.getText()));
+            bill.setId_consultation(Integer.parseInt(viewBill.txtIdConBil.getText()));
+            bill.setIssue_date(viewBill.txtDateBi.getText());
+            bill.setDescription(viewBill.txtDescipBi.getText());
+            bill.setQuantity(Integer.parseInt(viewBill.txtQuantityBi.getText()));
+            bill.setUnit_value(Float.parseFloat(viewBill.txtUnitBi.getText()));
+            bill.setSubtotal(bill.getQuantity() * bill.getUnit_value());
+            bill.setTax(Float.parseFloat(viewBill.txtTaxBi.getText()));
+            bill.setTotal(bill.getSubtotal() + bill.getTax());
+            bill.setStatusBill((String)viewBill.cbStatuBi.getSelectedItem());
             if(dao.InsertBilling(bill)) {
-                JOptionPane.showMessageDialog(null, "Factura agregada exitosamente");
-                listBilling();
-                clearFields();
+                JOptionPane.showMessageDialog(null, "Billing added");
+                ListBilling(viewBill.TableBi);
             } else {
-                JOptionPane.showMessageDialog(null, "Error al agregar factura");
+                JOptionPane.showMessageDialog(null, "Billing not added");
             }
             
         }
         
         if (e.getSource() == viewBill.btnUpdateBi) {
-                setBillingData();
+            System.out.println("si sirvo");
+            bill.setId_bill(Integer.parseInt(viewBill.txtIdBi.getText()));
+            bill.setId_veterinarian(Integer.parseInt(viewBill.txtIdVetBi.getText()));
+            bill.setId_owner(Integer.parseInt(viewBill.txtIdOwBil.getText()));
+            bill.setId_consultation(Integer.parseInt(viewBill.txtIdConBil.getText()));
+            bill.setIssue_date(viewBill.txtDateBi.getText());
+            bill.setDescription(viewBill.txtDescipBi.getText());
+            bill.setQuantity(Integer.parseInt(viewBill.txtQuantityBi.getText()));
+            bill.setUnit_value(Float.parseFloat(viewBill.txtUnitBi.getText()));
+            bill.setSubtotal(bill.getQuantity() * bill.getUnit_value());
+            bill.setTax(Float.parseFloat(viewBill.txtTaxBi.getText()));
+            bill.setTotal(bill.getSubtotal() + bill.getTax());
+            bill.setStatusBill((String)viewBill.cbStatuBi.getSelectedItem());
             if (dao.UpdateBilling(bill)) {
-                JOptionPane.showMessageDialog(null, "Factura actualizada exitosamente");
-                listBilling();
-                clearFields();
+                JOptionPane.showMessageDialog(null, "Billing update");
+                
             } else {
-                JOptionPane.showMessageDialog(null, "Error al actualizar factura");
+                JOptionPane.showMessageDialog(null, "Billing not update");
             }
             
         }
         
         if (e.getSource() == viewBill.btnDeleteBi) {
+            System.out.println("sirvo");
+            bill.setId_bill(Integer.parseInt(viewBill.txtIdBi.getText()));
             if (dao.DeleteBilling(bill)) {
-                JOptionPane.showMessageDialog(null, "Factura eliminada exitosamente");
-                listBilling();
-                clearFields();
+                JOptionPane.showMessageDialog(null, "Billing delete");
+                
             } else {
-                JOptionPane.showMessageDialog(null, "Error al eliminar factura");
+                JOptionPane.showMessageDialog(null, "Billing not delete");
             }
             
         }
         
         if (e.getSource() == viewBill.btnListBi) {
-            listBilling();
+            System.out.println("Sirvo");
+            ListBilling(viewBill.TableBi);
         }
 
     }
     
-    private void setBillingData() {
-        bill.setId_veterinarian(Integer.parseInt(viewBill.cbVetBi.getSelectedItem().toString().split(" - ")[0]));
-        bill.setId_owner(Integer.parseInt(viewBill.cbOwnerBi.getSelectedItem().toString().split(" - ")[0]));
-        bill.setId_consultation(Integer.parseInt(viewBill.cbConsulBi.getSelectedItem().toString().split(" - ")[0]));
-        bill.setIssue_date(viewBill.txtDateBi.getText());
-        bill.setDescription(viewBill.txtDescipBi.getText());
-        bill.setQuantity(Integer.parseInt(viewBill.txtQuantityBi.getText()));
-        bill.setUnit_value(Float.parseFloat(viewBill.txtUnitBi.getText()));
-        bill.setSubtotal(bill.getQuantity() * bill.getUnit_value());
-        bill.setTax(Float.parseFloat(viewBill.txtTaxBi.getText()));
-        bill.setTotal(bill.getSubtotal() + bill.getTax());
-        bill.setStatusBill(viewBill.cbStatuBi.getSelectedItem().toString());
+    private void ListBilling(JTable table){
+        model = (DefaultTableModel)table.getModel();
+        model.setRowCount(0);
+        List<billing> bills = dao.ListBilling();
         
-        viewBill.txtSubtoBi.setText(String.valueOf(bill.getSubtotal()));
-        viewBill.txtTotalBill.setText(String.valueOf(bill.getTotal()));
-    }
-
-    private void setComboBoxSelection(JComboBox<String> comboBox, String id) {
-        for (int i = 0; i < comboBox.getItemCount(); i++) {
-            String item = comboBox.getItemAt(i);
-            if (item.startsWith(id + " - ")) {
-                comboBox.setSelectedIndex(i);
-                break;
-            }
+        
+        Object[] object = new Object[12];
+        for(int i = 0; i<bills.size(); i++){
+            object[0] = bills.get(i).getId_bill();
+            object[1] = bills.get(i).getId_veterinarian();
+            object[2] = bills.get(i).getId_owner();
+            object[3] = bills.get(i).getId_consultation();
+            object[4] = bills.get(i).getIssue_date();
+            object[5] = bills.get(i).getDescription();
+            object[6] = bills.get(i).getQuantity();
+            object[7] = bills.get(i).getUnit_value();
+            object[8] = bills.get(i).getSubtotal();
+            object[9] = bills.get(i).getTax();
+            object[10] = bills.get(i).getTotal();
+            object[11] = bills.get(i).getStatusBill();
+            
+            model.addRow(object);
         }
+        viewBill.TableBi.setModel(model);
     }
-    
-    private void clearFields() {
-        viewBill.txtIdBi.setText("");
-        viewBill.txtDateBi.setText("");
-        viewBill.txtDescipBi.setText("");
-        viewBill.txtQuantityBi.setText("");
-        viewBill.txtUnitBi.setText("");
-        viewBill.txtSubtoBi.setText("");
-        viewBill.txtTaxBi.setText("");
-        viewBill.txtTotalBill.setText("");
-        viewBill.cbOwnerBi.setSelectedIndex(0);
-        viewBill.cbVetBi.setSelectedIndex(0);
-        viewBill.cbConsulBi.setSelectedIndex(0);
-        viewBill.cbStatuBi.setSelectedIndex(0);
-    }
+   
 
 }

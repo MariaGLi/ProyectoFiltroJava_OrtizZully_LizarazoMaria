@@ -45,56 +45,101 @@ public class vistaVaccines extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(96, 163, 188));
 
-        titulo.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        titulo.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Vaccines");
 
-        idVaccine.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        idVaccine.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        idVaccine.setForeground(new java.awt.Color(255, 255, 255));
         idVaccine.setText("IdVaccine:");
 
-        vaccineType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        vaccineType.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        vaccineType.setForeground(new java.awt.Color(255, 255, 255));
         vaccineType.setText("VaccineType:");
 
-        manufacturer.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        manufacturer.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        manufacturer.setForeground(new java.awt.Color(255, 255, 255));
         manufacturer.setText("Manufacturer:");
 
-        lot.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lot.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        lot.setForeground(new java.awt.Color(255, 255, 255));
         lot.setText("Lot:");
 
-        adminDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        adminDate.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        adminDate.setForeground(new java.awt.Color(255, 255, 255));
         adminDate.setText("AdministrationDate:");
 
-        expDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        expDate.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        expDate.setForeground(new java.awt.Color(255, 255, 255));
         expDate.setText("ExpirationDate:");
 
-        entryDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtidVaccine.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtvaccineType.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtManufacturer.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtLot.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtadminDate.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtexpDate.setBackground(new java.awt.Color(255, 255, 255));
+
+        entryDate.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        entryDate.setForeground(new java.awt.Color(255, 255, 255));
         entryDate.setText("EntryDate:");
 
-        nextDoseDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nextDoseDate.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        nextDoseDate.setForeground(new java.awt.Color(255, 255, 255));
         nextDoseDate.setText("NextDoseDate:");
 
-        quantityStock.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtentryDate.setBackground(new java.awt.Color(255, 255, 255));
+
+        quantityStock.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        quantityStock.setForeground(new java.awt.Color(255, 255, 255));
         quantityStock.setText("QuantityStock:");
 
-        quantityEntered.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        quantityEntered.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        quantityEntered.setForeground(new java.awt.Color(255, 255, 255));
         quantityEntered.setText("QuantityEntered:");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("IdPet:");
 
-        btnDelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtnextDose.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtquantStock.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtquantEntered.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtidPet.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnDelete.setBackground(new java.awt.Color(44, 62, 80));
+        btnDelete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
 
-        btnList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnList.setBackground(new java.awt.Color(44, 62, 80));
+        btnList.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnList.setForeground(new java.awt.Color(255, 255, 255));
         btnList.setText("List");
 
-        btnSave.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSave.setBackground(new java.awt.Color(44, 62, 80));
+        btnSave.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnUpdate.setBackground(new java.awt.Color(44, 62, 80));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
 
+        btnBackV.setBackground(new java.awt.Color(44, 62, 80));
+        btnBackV.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnBackV.setForeground(new java.awt.Color(255, 255, 255));
         btnBackV.setText("Back");
         btnBackV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,8 +153,7 @@ public class vistaVaccines extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titulo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -150,78 +194,77 @@ public class vistaVaccines extends javax.swing.JFrame {
                                     .addComponent(jLabel1))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtidPet, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                    .addComponent(txtquantEntered))))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtidPet, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                                    .addComponent(txtquantEntered)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(titulo)
+                        .addGap(182, 182, 182)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBackV)
-                                .addGap(32, 32, 32)))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBackV)
+                        .addGap(33, 33, 33))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(27, 27, 27)
                 .addComponent(titulo)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idVaccine)
                     .addComponent(txtidVaccine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(entryDate)
                     .addComponent(txtentryDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(vaccineType)
-                            .addComponent(txtvaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nextDoseDate)
-                            .addComponent(txtnextDose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(manufacturer)
-                            .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(quantityStock)
-                            .addComponent(txtquantStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnList)
-                            .addComponent(btnSave))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lot)
-                            .addComponent(txtLot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(quantityEntered)
-                            .addComponent(txtquantEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdate))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(adminDate)
-                            .addComponent(txtadminDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtidPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(expDate)
-                            .addComponent(txtexpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(25, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBackV)
-                        .addGap(57, 57, 57))))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vaccineType)
+                    .addComponent(txtvaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nextDoseDate)
+                    .addComponent(txtnextDose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(manufacturer)
+                    .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quantityStock)
+                    .addComponent(txtquantStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnList)
+                    .addComponent(btnSave))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lot)
+                    .addComponent(txtLot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quantityEntered)
+                    .addComponent(txtquantEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adminDate)
+                    .addComponent(txtadminDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtidPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBackV))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(expDate)
+                    .addComponent(txtexpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         fondoTabla.setBackground(new java.awt.Color(255, 255, 255));
 
+        table.setBackground(new java.awt.Color(255, 255, 255));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

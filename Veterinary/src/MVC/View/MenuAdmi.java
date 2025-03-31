@@ -15,6 +15,7 @@ import MVC.Model.AppointDAO;
 import MVC.Model.BillingDAO;
 import MVC.Model.MedicationsDAO;
 import MVC.Model.OwnerDAO;
+import MVC.Model.PetsDAO;
 import MVC.Model.SupplierDAO;
 import MVC.Model.SuppliesDAO;
 import MVC.Model.User;
@@ -22,8 +23,10 @@ import MVC.Model.UserDAO;
 import MVC.Model.billing;
 import MVC.Model.medical_consultations;
 import MVC.Model.medications;
+import MVC.Model.pets;
 import MVC.Model.suppliers;
 import MVC.Model.supplies;
+import MVC.controller.petsController;
 
 /**
  *
@@ -55,11 +58,9 @@ public class MenuAdmi extends javax.swing.JFrame {
         btManagePet = new javax.swing.JButton();
         btManageAppoint = new javax.swing.JButton();
         btLogout = new javax.swing.JButton();
-        btReport = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         bntMnageMedication = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -134,18 +135,6 @@ public class MenuAdmi extends javax.swing.JFrame {
             }
         });
 
-        btReport.setBackground(new java.awt.Color(255, 255, 255));
-        btReport.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btReport.setForeground(new java.awt.Color(44, 62, 80));
-        btReport.setText("Report");
-        btReport.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btReport.setPreferredSize(new java.awt.Dimension(157, 32));
-        btReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btReportActionPerformed(evt);
-            }
-        });
-
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(44, 62, 80));
@@ -182,13 +171,6 @@ public class MenuAdmi extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(44, 62, 80));
-        jButton4.setText("Manage Expirations");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton4.setPreferredSize(new java.awt.Dimension(157, 32));
-
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jButton5.setForeground(new java.awt.Color(44, 62, 80));
@@ -222,20 +204,18 @@ public class MenuAdmi extends javax.swing.JFrame {
                             .addComponent(btManageAppoint, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btManagePet, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btManageOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bntMnageMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btReport, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
+                        .addGap(178, 178, 178)
                         .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -264,13 +244,9 @@ public class MenuAdmi extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btReport, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -309,7 +285,12 @@ public class MenuAdmi extends javax.swing.JFrame {
     }//GEN-LAST:event_btManageAppointActionPerformed
 
     private void btManagePetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btManagePetActionPerformed
-        // TODO add your handling code here:
+        Vista v = new Vista();
+        PetsDAO dao = new PetsDAO();
+        pets pet = new pets();
+        petsController ctrlP = new petsController(v, dao, pet);
+        v.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btManagePetActionPerformed
 
     private void bntMnageMedicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMnageMedicationActionPerformed
@@ -365,10 +346,6 @@ public class MenuAdmi extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void btReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btReportActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -411,10 +388,8 @@ public class MenuAdmi extends javax.swing.JFrame {
     public javax.swing.JButton btManageOwner;
     public javax.swing.JButton btManagePet;
     public javax.swing.JButton btManageUser;
-    public javax.swing.JButton btReport;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton3;
-    public javax.swing.JButton jButton4;
     public javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -45,8 +45,6 @@ public class crudBillings extends javax.swing.JFrame {
         txtUnitBi = new javax.swing.JTextField();
         txtSubtoBi = new javax.swing.JTextField();
         txtTaxBi = new javax.swing.JTextField();
-        cbOwnerBi = new javax.swing.JComboBox<>();
-        cbVetBi = new javax.swing.JComboBox<>();
         cbStatuBi = new javax.swing.JComboBox<>();
         btnInsertBi = new javax.swing.JButton();
         btnUpdateBi = new javax.swing.JButton();
@@ -56,8 +54,11 @@ public class crudBillings extends javax.swing.JFrame {
         TableBi = new javax.swing.JTable();
         btnBackBi = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        cbConsulBi = new javax.swing.JComboBox<>();
         txtTotalBill = new javax.swing.JTextField();
+        txtIdConBil = new javax.swing.JTextField();
+        txtIdVetBi = new javax.swing.JTextField();
+        txtIdOwBil = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,10 +127,6 @@ public class crudBillings extends javax.swing.JFrame {
 
         txtTaxBi.setBackground(new java.awt.Color(255, 255, 255));
 
-        cbOwnerBi.setBackground(new java.awt.Color(255, 255, 255));
-
-        cbVetBi.setBackground(new java.awt.Color(255, 255, 255));
-
         cbStatuBi.setBackground(new java.awt.Color(255, 255, 255));
         cbStatuBi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Pending", "Paid", "Canceled" }));
 
@@ -176,26 +173,37 @@ public class crudBillings extends javax.swing.JFrame {
         btnBackBi.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnBackBi.setForeground(new java.awt.Color(255, 255, 255));
         btnBackBi.setText("Back");
+        btnBackBi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackBiActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Medications");
+        jLabel12.setText("Consultation");
 
-        cbConsulBi.setBackground(new java.awt.Color(255, 255, 255));
+        txtTotalBill.setBackground(new java.awt.Color(255, 255, 255));
+        txtTotalBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalBillActionPerformed(evt);
+            }
+        });
+
+        txtIdConBil.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtIdVetBi.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtIdOwBil.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Total");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(457, 457, 457)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbVetBi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbStatuBi, 0, 115, Short.MAX_VALUE)
-                    .addComponent(cbConsulBi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(86, 86, 86))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -237,28 +245,30 @@ public class crudBillings extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnUpdateBi))))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtTaxBi, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(txtSubtoBi, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtUnitBi, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtIdOwBil))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTaxBi, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(txtSubtoBi, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtUnitBi, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(cbOwnerBi, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(457, 457, 457)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(237, 237, 237))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(txtTotalBill, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(txtTotalBill, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cbStatuBi, 0, 115, Short.MAX_VALUE)
+                        .addComponent(txtIdConBil)
+                        .addComponent(txtIdVetBi)))
+                .addGap(86, 86, 86))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +282,7 @@ public class crudBillings extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(txtIdBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtUnitBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbVetBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdVetBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -280,7 +290,7 @@ public class crudBillings extends javax.swing.JFrame {
                     .addComponent(txtDateBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSubtoBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(cbConsulBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdConBil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -294,8 +304,9 @@ public class crudBillings extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel9)
                     .addComponent(txtQuantityBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbOwnerBi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTotalBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTotalBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdOwBil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertBi)
@@ -330,6 +341,16 @@ public class crudBillings extends javax.swing.JFrame {
     private void btnListBiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListBiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListBiActionPerformed
+
+    private void txtTotalBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalBillActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalBillActionPerformed
+
+    private void btnBackBiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackBiActionPerformed
+        MenuAdmi menuA = new MenuAdmi();
+        menuA.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackBiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,14 +394,12 @@ public class crudBillings extends javax.swing.JFrame {
     public javax.swing.JButton btnInsertBi;
     public javax.swing.JButton btnListBi;
     public javax.swing.JButton btnUpdateBi;
-    public javax.swing.JComboBox<String> cbConsulBi;
-    public javax.swing.JComboBox<String> cbOwnerBi;
     public javax.swing.JComboBox<String> cbStatuBi;
-    public javax.swing.JComboBox<String> cbVetBi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -394,6 +413,9 @@ public class crudBillings extends javax.swing.JFrame {
     public javax.swing.JTextField txtDateBi;
     public javax.swing.JTextField txtDescipBi;
     public javax.swing.JTextField txtIdBi;
+    public javax.swing.JTextField txtIdConBil;
+    public javax.swing.JTextField txtIdOwBil;
+    public javax.swing.JTextField txtIdVetBi;
     public javax.swing.JTextField txtQuantityBi;
     public javax.swing.JTextField txtSubtoBi;
     public javax.swing.JTextField txtTaxBi;

@@ -173,12 +173,7 @@ public class BillingDAO extends Conexion{
         ResultSet rs = null;
         Connection conec = getConexion();
         
-        String sql = "b.*, u1.full_name AS owner_name, u2.fullname AS vet_name, p.fullName AS pet_name"
-                + "FROM Billing b"
-                + "JOIN Users u1 ON b.id_owner = u1.id_user"
-                + "JOIN Users u2 ON b.id_veterinarian = u2.id_user"
-                + "JOIN Medical_consultations mc ON b.id_consultation = mc.id_consultation"
-                + "JOIN Pets p ON mc.id_pet = p.id_pet";
+        String sql = "SELECT + FROM Billing";
         
         try{
             ps = conec.prepareStatement(sql);
