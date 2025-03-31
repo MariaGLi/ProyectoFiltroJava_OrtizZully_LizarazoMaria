@@ -5,6 +5,9 @@
 package MVC.View;
 
 import MVC.Controller.addiServicesController;
+import MVC.Controller.ctrlLogin;
+import MVC.Model.Login;
+import MVC.Model.LoginDAO;
 import MVC.Model.PetsDAO;
 import MVC.Model.additionalServicesDAO;
 import MVC.Model.additional_services;
@@ -183,7 +186,10 @@ public class MenuOwner extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Login log = new Login();
         LoginView lv = new LoginView();
+        LoginDAO dao = new LoginDAO();
+        ctrlLogin ctrlL = new ctrlLogin(log, dao, lv);
         lv.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed

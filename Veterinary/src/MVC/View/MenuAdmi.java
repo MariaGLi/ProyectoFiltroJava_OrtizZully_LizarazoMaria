@@ -11,8 +11,11 @@ import MVC.Controller.ControllerOwner;
 import MVC.Controller.ControllerSuppliers;
 import MVC.Controller.ControllerSupplies;
 import MVC.Controller.ControllerUser;
+import MVC.Controller.ctrlLogin;
 import MVC.Model.AppointDAO;
 import MVC.Model.BillingDAO;
+import MVC.Model.Login;
+import MVC.Model.LoginDAO;
 import MVC.Model.MedicationsDAO;
 import MVC.Model.OwnerDAO;
 import MVC.Model.PetsDAO;
@@ -270,7 +273,10 @@ public class MenuAdmi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogoutActionPerformed
+        Login log = new Login();
         LoginView lv = new LoginView();
+        LoginDAO dao = new LoginDAO();
+        ctrlLogin ctrlL = new ctrlLogin(log, dao, lv);
         lv.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btLogoutActionPerformed

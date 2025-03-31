@@ -4,8 +4,11 @@
  */
 package MVC.View;
 
+import MVC.Controller.ctrlLogin;
 import MVC.Controller.medicalConsulController;
 import MVC.Controller.vaccinesController;
+import MVC.Model.Login;
+import MVC.Model.LoginDAO;
 import MVC.Model.VaccinesDAO;
 import MVC.Model.addConsulDAO;
 import MVC.Model.medical_consultations;
@@ -88,6 +91,11 @@ public class MenuVet extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Logout");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,6 +169,15 @@ public class MenuVet extends javax.swing.JFrame {
         v.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Login log = new Login();
+        LoginView lv = new LoginView();
+        LoginDAO dao = new LoginDAO();
+        ctrlLogin ctrlL = new ctrlLogin(log, dao, lv);
+        lv.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
   
     /**
      * @param args the command line arguments
