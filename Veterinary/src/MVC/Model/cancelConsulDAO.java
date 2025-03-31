@@ -1,30 +1,36 @@
-package modelo;
+package MVC.Model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
-public class cancelConsulDAO {
+public class cancelConsulDAO extends Conexion{
     
-    String url = "jdbc:mysql://localhost:3306/Veterinary";
-    String user = "root";
-    String pass = "marializarazo";
-
-    public Connection conection() throws SQLException {
-        return DriverManager.getConnection(url, user, pass);
-    }
+  
     
-    public void deleteConsul(int id){
+    public boolean deleteConsul(int id){
+        PreparedStatement ps = null;
+        Connection conec = getConexion();
+        
         String sql = "DELETE FROM medical_consultations WHERE id_consultation = ?";
-        try(Connection con = conection(); PreparedStatement ps = con.prepareStatement(sql)){
+        try {
+            ps = conec.prepareStatement(sql);
             ps.setInt(1, id);
             ps.execute();
             JOptionPane.showMessageDialog(null, "Medical consultation has been eliminated.");
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "¡Error! Medical consultation has not been eliminated" + e);
+            return true;
+        }catch (SQLException e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "¡Error! Medical consultation has not been eliminated" );
+            return false;
         }
     }
+
+    public boolean deleteConsul(medical_consultations medicon) {
+        return deleteConsul(medicon.getId_consultation());
+    }
+
+    
 }

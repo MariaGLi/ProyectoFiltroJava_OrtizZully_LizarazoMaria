@@ -11,15 +11,15 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class listController implements ActionListener {
-
+    medical_consultations consul = new medical_consultations();
     listConsulDAO listcondao = new listConsulDAO();    
     viewAppointment view = new viewAppointment();
     DefaultTableModel modelo = new DefaultTableModel();
 
-    public listController(viewAppointment view, listConsulDAO listcondao) {
+    public listController(viewAppointment view, listConsulDAO listcondao, medical_consultations consul) {
         this.view = view;
         this.listcondao = listcondao;        
-
+        this.consul = consul;
         this.view.btnList.addActionListener(this);
     }
     

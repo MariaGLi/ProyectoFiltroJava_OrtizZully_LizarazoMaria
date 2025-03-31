@@ -1,8 +1,8 @@
 package MVC.View;
 
-public class additionalServices extends javax.swing.JFrame {
+public class View_additionalServices extends javax.swing.JFrame {
 
-    public additionalServices() {
+    public View_additionalServices() {
         initComponents();
     }
 
@@ -157,9 +157,9 @@ public class additionalServices extends javax.swing.JFrame {
                 .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoVerdeLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(servicesType)
-                            .addComponent(txtServType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtServType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(servicesType)))
                     .addGroup(fondoVerdeLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(btnAdd)))

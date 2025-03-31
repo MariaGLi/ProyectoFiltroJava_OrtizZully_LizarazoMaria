@@ -4,6 +4,13 @@
  */
 package MVC.View;
 
+import MVC.Controller.medicalConsulController;
+import MVC.Controller.vaccinesController;
+import MVC.Model.VaccinesDAO;
+import MVC.Model.addConsulDAO;
+import MVC.Model.medical_consultations;
+import MVC.Model.vaccines;
+
 /**
  *
  * @author const
@@ -148,6 +155,9 @@ public class MenuVet extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         vistaVaccines v = new vistaVaccines();
+        VaccinesDAO dao = new VaccinesDAO();
+        vaccines vac = new vaccines();
+        vaccinesController ctrlV = new vaccinesController(v, dao, vac);
         v.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

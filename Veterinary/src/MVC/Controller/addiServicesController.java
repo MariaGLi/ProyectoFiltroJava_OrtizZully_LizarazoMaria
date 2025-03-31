@@ -2,7 +2,7 @@ package MVC.Controller;
 
 import MVC.Model.additionalServicesDAO;
 import MVC.Model.additional_services;
-import MVC.View.additionalServices;
+import MVC.View.View_additionalServices;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -15,10 +15,10 @@ public class addiServicesController implements ActionListener {
 
     additionalServicesDAO addiservdao = new additionalServicesDAO();
     additional_services addiserv = new additional_services();
-    additionalServices see = new additionalServices();
+    View_additionalServices see = new View_additionalServices();
     DefaultTableModel modelo = new DefaultTableModel();
     
-    public addiServicesController(additionalServices see, additionalServicesDAO addiservdao, additional_services addiserv){
+    public addiServicesController(View_additionalServices see, additionalServicesDAO addiservdao, additional_services addiserv){
         this.see = see;
         this.addiservdao = addiservdao;
         this.addiserv = addiserv;
@@ -64,7 +64,7 @@ public class addiServicesController implements ActionListener {
     }
     
     public static void main(String[] args) {
-        additionalServices see = new additionalServices();
+        View_additionalServices see = new View_additionalServices();
         additionalServicesDAO addiservdao = new additionalServicesDAO();
         additional_services addiserv = new additional_services();
         addiServicesController asc = new addiServicesController(see, addiservdao, addiserv);

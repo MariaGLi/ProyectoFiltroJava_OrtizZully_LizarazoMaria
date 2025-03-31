@@ -16,7 +16,7 @@ public class BillingDAO extends Conexion{
         ResultSet rs = null;
         Connection conec = getConexion();
         
-        String sql = "SELECT id_user FROM Users WHERE id_user = ? AND role = 'owner'";
+        String sql = "SELECT id_user FROM Users WHERE id_user = ? AND rol = 'owner'";
         
         try{
             ps = conec.prepareStatement(sql);
@@ -36,7 +36,7 @@ public class BillingDAO extends Conexion{
         ResultSet rs = null;
         Connection conec = getConexion();
         
-        String sql = "SELECT id_user FROM Users WHERE id_user = ? AND role = 'veterinarian'";
+        String sql = "SELECT id_user FROM Users WHERE id_user = ? AND rol = 'veterinarian'";
         
         try{
             ps = conec.prepareStatement(sql);
@@ -173,7 +173,7 @@ public class BillingDAO extends Conexion{
         ResultSet rs = null;
         Connection conec = getConexion();
         
-        String sql = "SELECT + FROM Billing";
+        String sql = "SELECT * FROM Billing";
         
         try{
             ps = conec.prepareStatement(sql);

@@ -1,5 +1,13 @@
 package MVC.View;
 
+import MVC.Controller.cancelConsulController;
+import MVC.Controller.listController;
+import MVC.Controller.medicalConsulController;
+import MVC.Model.addConsulDAO;
+import MVC.Model.cancelConsulDAO;
+import MVC.Model.listConsulDAO;
+import MVC.Model.medical_consultations;
+
 public class appointmentManagement extends javax.swing.JFrame {
 
     public appointmentManagement() {
@@ -15,7 +23,6 @@ public class appointmentManagement extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         viewAppointments = new javax.swing.JButton();
         cancelAppointment = new javax.swing.JButton();
-        addDiagnostic = new javax.swing.JButton();
         addAppointment = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -48,16 +55,6 @@ public class appointmentManagement extends javax.swing.JFrame {
         cancelAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelAppointmentActionPerformed(evt);
-            }
-        });
-
-        addDiagnostic.setBackground(new java.awt.Color(255, 255, 255));
-        addDiagnostic.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        addDiagnostic.setForeground(new java.awt.Color(44, 62, 80));
-        addDiagnostic.setText("Add diagnostic");
-        addDiagnostic.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addDiagnosticActionPerformed(evt);
             }
         });
 
@@ -95,8 +92,7 @@ public class appointmentManagement extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(cancelAppointment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(viewAppointments, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                            .addComponent(addAppointment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addDiagnostic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(addAppointment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(127, 127, 127)
                         .addComponent(jLabel1)))
@@ -115,13 +111,11 @@ public class appointmentManagement extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(41, 41, 41)
                 .addComponent(addAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(viewAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addComponent(cancelAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(addDiagnostic, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(70, 70, 70)
                 .addComponent(jButton1)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
@@ -141,31 +135,32 @@ public class appointmentManagement extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAppointmentsActionPerformed
-        // TODO add your handling code here:
+       medical_consultations mc = new medical_consultations();
         viewAppointment abrir = new viewAppointment();
+        listConsulDAO dao = new listConsulDAO();
+        listController ctrlL = new listController(abrir, dao, mc);
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_viewAppointmentsActionPerformed
 
     private void addAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAppointmentActionPerformed
-        // TODO add your handling code here:
+        
         addAppointment abrir = new addAppointment();
+        addConsulDAO dao = new addConsulDAO();
+        medical_consultations mc = new medical_consultations();
+        medicalConsulController ctrl = new medicalConsulController(abrir, dao, mc);
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addAppointmentActionPerformed
 
     private void cancelAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAppointmentActionPerformed
-        // TODO add your handling code here:
+        medical_consultations mc = new medical_consultations();
         cancelAppointment abrir = new cancelAppointment();
+        cancelConsulDAO dao = new cancelConsulDAO();
+        cancelConsulController ctrlC = new cancelConsulController(abrir, dao, mc);
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cancelAppointmentActionPerformed
-
-    private void addDiagnosticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDiagnosticActionPerformed
-        manageConsultationsVeterinary mv = new manageConsultationsVeterinary();
-        mv.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_addDiagnosticActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MenuOwner mo = new MenuOwner();
@@ -175,7 +170,6 @@ public class appointmentManagement extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton addAppointment;
-    public javax.swing.JButton addDiagnostic;
     public javax.swing.JButton cancelAppointment;
     public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

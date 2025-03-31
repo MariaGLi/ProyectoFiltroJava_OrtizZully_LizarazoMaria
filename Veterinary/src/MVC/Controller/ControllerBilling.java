@@ -32,33 +32,12 @@ public class ControllerBilling implements ActionListener{
         this.viewBill.btnInsertBi.addActionListener(this);
         this.viewBill.btnListBi.addActionListener(this);
         this.viewBill.btnUpdateBi.addActionListener(this);
-        listBilling();
+        
         
     }
     
     
-    private void listBilling(){
-        model.setRowCount(0);
-        List<billing> bills = dao.ListBilling();
-        for(billing bill : bills){
-            Object[] object = new Object[12];
-            object[0] = bill.getId_bill();
-            object[1] = bill.getId_veterinarian();
-            object[2] = bill.getId_owner();
-            object[3] = bill.getId_consultation();
-            object[4] = bill.getIssue_date();
-            object[5] = bill.getDescription();
-            object[6] = bill.getQuantity();
-            object[7] = bill.getUnit_value();
-            object[8] = bill.getSubtotal();
-            object[9] = bill.getTax();
-            object[10] = bill.getTotal();
-            object[11] = bill.getStatusBill();
-            model.addRow(object);
-        }
-        viewBill.TableBi.setModel(model);
-        
-    }
+   
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == viewBill.btnInsertBi) {
