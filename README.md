@@ -25,6 +25,10 @@ La página está basada en happy feet una veterinaria que nos permitirá manejar
 ![image](https://github.com/user-attachments/assets/a4d2890b-92ee-4ff5-ad09-0022192687af)
 ![image](https://github.com/user-attachments/assets/6a840307-0c24-4d6c-88dd-14f7552d385d)
 
+# Link Archivo Word
+
+https://docs.google.com/document/d/1Y5i2OTbRX8MA4UwY4vAi7Ej2hZbfUQo2rJJleF_gGok/edit?usp=sharing
+
 # Instrucciones
 
 1. Clonar el repositorio cargado en git.
