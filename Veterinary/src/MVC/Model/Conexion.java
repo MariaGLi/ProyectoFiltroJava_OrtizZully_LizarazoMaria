@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class Conexion {
     Connection conec = null; 
     
-    private String URL = "jdbc:mysql://127.0.0.1:3306/Veterinary";
+    private String URL = "jdbc:mysql://localhost:3306/Veterinary";
     private String USER = "root";
-    private String PASSWORD = "1092528097";
+    private String PASSWORD = "marializarazo";
     
     public Connection getConexion(){
         try{

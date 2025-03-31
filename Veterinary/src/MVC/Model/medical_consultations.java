@@ -31,6 +31,14 @@ public class medical_consultations {
         this.status_consul = status_consul;
     }
 
+    public medical_consultations(int id_consultation, String date_time, int id_pet, int id_owner, String status_consul) {
+        this.id_consultation = id_consultation;
+        this.date_time = date_time;
+        this.id_pet = id_pet;
+        this.id_owner = id_owner;
+        this.status_consul = status_consul;
+    }
+
     public int getId_consultation() {
         return id_consultation;
     }

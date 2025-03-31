@@ -323,9 +323,6 @@ public class MenuAdmi extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         crudBillings cb = new crudBillings();
-        billing bill = new billing();
-        BillingDAO dao = new BillingDAO();
-        ControllerBilling ctrlB = new ControllerBilling(dao, bill, cb, model);
         cb.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
