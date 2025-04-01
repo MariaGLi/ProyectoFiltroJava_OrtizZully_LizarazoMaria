@@ -17,6 +17,7 @@ public class ctrlMenuVet {
     
     public void start(){
         vetMenu.setVisible(true);
+        vetMenu.setLocationRelativeTo(null);
     }
     
 }

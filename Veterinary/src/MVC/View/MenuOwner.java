@@ -164,8 +164,9 @@ public class MenuOwner extends javax.swing.JFrame {
         Vista v = new Vista();
         PetsDAO dao = new PetsDAO();
         pets pet = new pets();
-        petsController ctrlP = new petsController(v, dao, pet);
+        petsController ctrlP = new petsController(v, dao, pet, "owner");
         v.setVisible(true);
+        v.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

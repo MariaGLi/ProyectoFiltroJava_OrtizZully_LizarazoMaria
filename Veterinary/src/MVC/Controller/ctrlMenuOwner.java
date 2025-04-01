@@ -16,5 +16,6 @@ public class ctrlMenuOwner {
     
     public void start(){
         ownerMenu.setVisible(true);
+        ownerMenu.setLocationRelativeTo(null);
     }
 }

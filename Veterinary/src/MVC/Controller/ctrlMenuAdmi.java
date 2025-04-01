@@ -14,6 +14,7 @@ package MVC.Controller;
 
     public void start(){
         admiMenu.setVisible(true);
+        admiMenu.setLocationRelativeTo(null);
     }
 }
     

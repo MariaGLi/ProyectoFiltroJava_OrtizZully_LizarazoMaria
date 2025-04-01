@@ -10,11 +10,7 @@ public class Conexion {
     
     private String URL = "jdbc:mysql://localhost:3306/Veterinary";
     private String USER = "root";
-<<<<<<< HEAD
     private String PASSWORD = "1092528097";
-=======
-    private String PASSWORD = "marializarazo";
->>>>>>> a106f51f61514091384a2cffd08c654f0b585acd
     
     public Connection getConexion(){
         try{

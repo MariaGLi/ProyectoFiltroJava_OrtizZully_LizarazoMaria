@@ -14,6 +14,7 @@ public class Veterinary {
         Login login = new Login();
         LoginView logView = new LoginView();
         ctrlLogin control = new ctrlLogin(login,dao,logView);
-        control.start();        
+        control.start();     
+        
     }
 }

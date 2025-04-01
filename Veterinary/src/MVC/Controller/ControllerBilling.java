@@ -14,6 +14,8 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFileChooser;
 
 
@@ -35,7 +37,7 @@ public class ControllerBilling implements ActionListener{
         this.viewBill.btnInsertBi.addActionListener(this);
         this.viewBill.btnListBi.addActionListener(this);
         this.viewBill.btnUpdateBi.addActionListener(this);
-        
+        this.viewBill.btnPDF.addActionListener(this);
         
     }
     
@@ -44,7 +46,7 @@ public class ControllerBilling implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == viewBill.btnInsertBi) {
-            System.out.println("Boton insertar presionado");
+            
             bill.setId_veterinarian(Integer.parseInt(viewBill.txtIdVetBi.getText()));
             bill.setId_owner(Integer.parseInt(viewBill.txtIdOwBil.getText()));
             bill.setId_consultation(Integer.parseInt(viewBill.txtIdConBil.getText()));
@@ -66,7 +68,6 @@ public class ControllerBilling implements ActionListener{
         }
         
         if (e.getSource() == viewBill.btnUpdateBi) {
-            System.out.println("si sirvo");
             bill.setId_bill(Integer.parseInt(viewBill.txtIdBi.getText()));
             bill.setId_veterinarian(Integer.parseInt(viewBill.txtIdVetBi.getText()));
             bill.setId_owner(Integer.parseInt(viewBill.txtIdOwBil.getText()));
@@ -89,7 +90,6 @@ public class ControllerBilling implements ActionListener{
         }
         
         if (e.getSource() == viewBill.btnDeleteBi) {
-            System.out.println("sirvo");
             bill.setId_bill(Integer.parseInt(viewBill.txtIdBi.getText()));
             if (dao.DeleteBilling(bill)) {
                 JOptionPane.showMessageDialog(null, "Billing delete");
@@ -101,8 +101,11 @@ public class ControllerBilling implements ActionListener{
         }
         
         if (e.getSource() == viewBill.btnListBi) {
-            System.out.println("Sirvo");
             ListBilling(viewBill.TableBi);
+        }
+        
+        if(e.getSource() == viewBill.btnPDF){
+            PDF();
         }
 
     }
@@ -134,13 +137,22 @@ public class ControllerBilling implements ActionListener{
     }
    
     public void PDF(){
+        Document doc = null;
         try{
+            // Get all bill
             List<billing> bills = dao.ListBilling();
+            if (bills == null || bills.isEmpty()){
+                JOptionPane.showMessageDialog(null, "no bill found un the databse to generate PDF- ");
+                return;
+            }
+            
+            
+            // Use JFileChooser to let the user choose where to save the PDF
             
             JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setDialogTitle("PDF FEEL HAPPY");
+            fileChooser.setDialogTitle("Save PDF of Billings");
             fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            fileChooser.setSelectedFile(new File("bill.pdf"));
+            fileChooser.setSelectedFile(new File("Happy_Feet.pdf"));
             int userSelecction = fileChooser.showSaveDialog(null);
             if(userSelecction != JFileChooser.APPROVE_OPTION){
                 return;
@@ -149,21 +161,116 @@ public class ControllerBilling implements ActionListener{
             File SaveFile = fileChooser.getSelectedFile();
             String ruta = SaveFile.getAbsolutePath();
             
-            Document doc = new Document();
+            // Create the PDF document
+            doc = new Document(PageSize.A4);
             PdfWriter.getInstance(doc, new FileOutputStream(ruta));
-            
             doc.open();
             
-            PdfPTable billTable = new PdfPTable(2);
-            billTable.setWidthPercentage(100);
-            billTable.setWidths(new float[]{70,30});
+            // Header
+            Font titleFont = new Font(Font.FontFamily.HELVETICA,16,Font.BOLD);
+            Paragraph title = new Paragraph("Billing - FEEL HAPPY", titleFont);
+            title.setAlignment(Element.ALIGN_CENTER);
+            doc.add(title);
+            doc.add(new Paragraph("\n")); // Space
             
-            Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.BOLD);
-            PdfPCell title = new PdfPCell(new Phrase("Billing - FEEL HAPPY"));
+            // Create data bill of narrative formate
+            Font labelFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+            Font valueFont = new Font(Font.FontFamily.HELVETICA, 12);
             
-        }catch(Exception e){
-            System.err.println(e);
-            JOptionPane.showMessageDialog(null, "I'm a PDF ");
+            
+            for (billing bill : bills) {
+                Paragraph idBillP = new Paragraph();
+                idBillP.add(new Phrase("Bill Number: ", labelFont));
+                idBillP.add(new Phrase(String.valueOf(bill.getId_bill()), valueFont));
+                doc.add(idBillP);
+
+                Paragraph datePara = new Paragraph();
+                datePara.add(new Phrase("Date Issue: ", labelFont));
+                datePara.add(new Phrase(bill.getIssue_date() != null ? bill.getIssue_date() : "N/A", valueFont));
+                doc.add(datePara);
+
+                Paragraph ownerPara = new Paragraph();
+                ownerPara.add(new Phrase("Owner ID: ", labelFont));
+                ownerPara.add(new Phrase(String.valueOf(bill.getId_owner()), valueFont));
+                doc.add(ownerPara);
+
+                Paragraph vetPara = new Paragraph();
+                vetPara.add(new Phrase("Veterinarian ID: ", labelFont));
+                vetPara.add(new Phrase(String.valueOf(bill.getId_veterinarian()), valueFont));
+                doc.add(vetPara);
+
+                Paragraph consultationPara = new Paragraph();
+                consultationPara.add(new Phrase("Consultation: ", labelFont));
+                consultationPara.add(new Phrase(String.valueOf(bill.getId_consultation()), valueFont));
+                doc.add(consultationPara);
+
+                doc.add(new Paragraph("\n"));
+
+                Paragraph descPara = new Paragraph();
+                descPara.add(new Phrase("Description of Service: ", labelFont));
+                descPara.add(new Phrase(bill.getDescription() != null ? bill.getDescription() : "N/A", valueFont));
+                doc.add(descPara);
+
+                Paragraph quantityPara = new Paragraph();
+                quantityPara.add(new Phrase("Quantity: ", labelFont));
+                quantityPara.add(new Phrase(String.valueOf(bill.getQuantity()), valueFont));
+                doc.add(quantityPara);
+
+                Paragraph unitValuePara = new Paragraph();
+                unitValuePara.add(new Phrase("Unit Value: ", labelFont));
+                unitValuePara.add(new Phrase(String.format("%.2f", bill.getUnit_value()), valueFont));
+                doc.add(unitValuePara);
+
+                Paragraph subtotalPara = new Paragraph();
+                subtotalPara.add(new Phrase("Subtotal: ", labelFont));
+                subtotalPara.add(new Phrase(String.format("%.2f", bill.getSubtotal()), valueFont));
+                doc.add(subtotalPara);
+
+                Paragraph taxPara = new Paragraph();
+                taxPara.add(new Phrase("Tax: ", labelFont));
+                taxPara.add(new Phrase(String.format("%.2f", bill.getTax()), valueFont));
+                doc.add(taxPara);
+
+                Paragraph totalPara = new Paragraph();
+                totalPara.add(new Phrase("Total: ", labelFont));
+                totalPara.add(new Phrase(String.format("%.2f", bill.getTotal()), valueFont));
+                doc.add(totalPara);
+
+                Paragraph statusPara = new Paragraph();
+                statusPara.add(new Phrase("State: ", labelFont));
+                statusPara.add(new Phrase(bill.getStatusBill() != null ? bill.getStatusBill() : "N/A", valueFont));
+                doc.add(statusPara);
+
+                // Separador entre facturas
+                doc.add(new Paragraph("\n"));
+                doc.add(new Paragraph("----------------------------------------"));
+                doc.add(new Paragraph("\n"));
+            }
+
+
+            doc.add(new Paragraph("\n"));
+            Font footerFont = new Font(Font.FontFamily.HELVETICA, 10, Font.ITALIC);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String currentDate = sdf.format(new Date());
+            Paragraph footer = new Paragraph("Generate of: " + currentDate, footerFont);
+            footer.setAlignment(Element.ALIGN_RIGHT);
+            doc.add(footer);
+
+
+            JOptionPane.showMessageDialog(null, "PDF sucessfull generated: " + ruta);
+
+        } catch (DocumentException de) {
+            System.err.println("iText DocumentException: " + de.getMessage());
+            de.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error to generated PDF: " + de.getMessage());
+        } catch (Exception ex) {
+            System.err.println("General Exception: " + ex.getMessage());
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error to generate PDF: " + ex.getMessage());
+        } finally {
+            if (doc != null && doc.isOpen()) {
+                doc.close();
+            }
         }
     }
 

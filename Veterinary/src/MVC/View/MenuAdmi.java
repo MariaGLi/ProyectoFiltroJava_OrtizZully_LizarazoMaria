@@ -6,6 +6,7 @@ package MVC.View;
 
 import MVC.Controller.ControllerAppoint;
 import MVC.Controller.ControllerBilling;
+import MVC.Controller.ControllerInventory;
 import MVC.Controller.ControllerMedications;
 import MVC.Controller.ControllerOwner;
 import MVC.Controller.ControllerSuppliers;
@@ -14,6 +15,7 @@ import MVC.Controller.ControllerUser;
 import MVC.Controller.ctrlLogin;
 import MVC.Model.AppointDAO;
 import MVC.Model.BillingDAO;
+import MVC.Model.InventoryDAO;
 import MVC.Model.Login;
 import MVC.Model.LoginDAO;
 import MVC.Model.MedicationsDAO;
@@ -66,6 +68,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        bntInvenAdmi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,7 +112,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         btManagePet.setForeground(new java.awt.Color(44, 62, 80));
         btManagePet.setText("Manage Pets");
         btManagePet.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btManagePet.setPreferredSize(new java.awt.Dimension(157, 32));
+        btManagePet.setPreferredSize(new java.awt.Dimension(115, 26));
         btManagePet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btManagePetActionPerformed(evt);
@@ -121,7 +124,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         btManageAppoint.setForeground(new java.awt.Color(44, 62, 80));
         btManageAppoint.setText("Manage Appointments");
         btManageAppoint.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btManageAppoint.setPreferredSize(new java.awt.Dimension(157, 32));
+        btManageAppoint.setPreferredSize(new java.awt.Dimension(115, 26));
         btManageAppoint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btManageAppointActionPerformed(evt);
@@ -143,7 +146,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(44, 62, 80));
         jButton1.setText("Manage Suppliers");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setPreferredSize(new java.awt.Dimension(157, 32));
+        jButton1.setPreferredSize(new java.awt.Dimension(115, 26));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -155,7 +158,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         bntMnageMedication.setForeground(new java.awt.Color(44, 62, 80));
         bntMnageMedication.setText("Manage Medications");
         bntMnageMedication.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        bntMnageMedication.setPreferredSize(new java.awt.Dimension(157, 32));
+        bntMnageMedication.setPreferredSize(new java.awt.Dimension(115, 26));
         bntMnageMedication.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntMnageMedicationActionPerformed(evt);
@@ -167,7 +170,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(44, 62, 80));
         jButton3.setText("Manage Supplies");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.setPreferredSize(new java.awt.Dimension(157, 32));
+        jButton3.setPreferredSize(new java.awt.Dimension(115, 26));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -179,10 +182,22 @@ public class MenuAdmi extends javax.swing.JFrame {
         jButton5.setForeground(new java.awt.Color(44, 62, 80));
         jButton5.setText("Manage Billing");
         jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton5.setPreferredSize(new java.awt.Dimension(157, 32));
+        jButton5.setPreferredSize(new java.awt.Dimension(115, 26));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
+            }
+        });
+
+        bntInvenAdmi.setBackground(new java.awt.Color(255, 255, 255));
+        bntInvenAdmi.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        bntInvenAdmi.setForeground(new java.awt.Color(44, 62, 80));
+        bntInvenAdmi.setText("Inventory");
+        bntInvenAdmi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bntInvenAdmi.setPreferredSize(new java.awt.Dimension(115, 26));
+        bntInvenAdmi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntInvenAdmiActionPerformed(evt);
             }
         });
 
@@ -190,83 +205,84 @@ public class MenuAdmi extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbAdmi)
-                        .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbMenu)
-                        .addGap(131, 131, 131))))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btManageAppoint, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btManagePet, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btManageOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bntMnageMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbAdmi)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bntMnageMedication, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bntInvenAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(71, 71, 71))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btManageAppoint, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btManagePet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btManageUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btManageOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(457, 457, 457))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(lbMenu)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbMenu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbAdmi)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btManageOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btManagePet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btManageAppoint, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntMnageMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbAdmi)
+                        .addGap(18, 18, 18)
+                        .addComponent(btManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btManageOwner, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btManagePet, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btManageAppoint, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bntMnageMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bntInvenAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
         );
 
         pack();
@@ -278,6 +294,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         LoginDAO dao = new LoginDAO();
         ctrlLogin ctrlL = new ctrlLogin(log, dao, lv);
         lv.setVisible(true);
+        lv.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_btLogoutActionPerformed
 
@@ -286,6 +303,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         AppointDAO dao = new AppointDAO();
         medical_consultations mc = new medical_consultations();
         ControllerAppoint ctrlA = new ControllerAppoint(mc, dao, ca);
+        ca.setLocationRelativeTo(null);
         ca.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btManageAppointActionPerformed
@@ -294,8 +312,9 @@ public class MenuAdmi extends javax.swing.JFrame {
         Vista v = new Vista();
         PetsDAO dao = new PetsDAO();
         pets pet = new pets();
-        petsController ctrlP = new petsController(v, dao, pet);
+        petsController ctrlP = new petsController(v, dao, pet, "administrator");
         v.setVisible(true);
+        v.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_btManagePetActionPerformed
 
@@ -305,6 +324,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         MedicationsDAO dao = new MedicationsDAO();
         ControllerMedications ctrlM = new ControllerMedications(medi, dao, cm);
         cm.setVisible(true);
+        cm.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_bntMnageMedicationActionPerformed
 
@@ -314,6 +334,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         BillingDAO dao = new BillingDAO();
         ControllerBilling ctrlB = new ControllerBilling(dao, bi, cb);
         cb.setVisible(true);
+        cb.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -323,6 +344,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         User user = new User();
         ControllerOwner ctrlO = new ControllerOwner(dao, user, co);
         co.setVisible(true);
+        co.setLocationRelativeTo(null);
         this.setVisible(false);
         
     }//GEN-LAST:event_btManageOwnerActionPerformed
@@ -333,6 +355,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         User user = new User();
         ControllerUser ctrlU = new ControllerUser(dao, user, cu);
         cu.setVisible(true);
+        cu.setLocationRelativeTo(null);
         this.setVisible(false);
         
     }//GEN-LAST:event_btManageUserActionPerformed
@@ -343,6 +366,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         suppliers su = new suppliers();
         ControllerSuppliers ctrlSp = new ControllerSuppliers(dao, su, cs);
         cs.setVisible(true);
+        cs.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -352,8 +376,20 @@ public class MenuAdmi extends javax.swing.JFrame {
         supplies sup = new supplies();
         ControllerSupplies ctrlSup = new ControllerSupplies(dao, sup, cs);
         cs.setVisible(true);
+        cs.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void bntInvenAdmiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntInvenAdmiActionPerformed
+        ViewInventary v = new ViewInventary();
+        InventoryDAO dao = new InventoryDAO();
+        medications medi = new medications();
+        supplies sup = new supplies();
+        ControllerInventory ctrlIn = new ControllerInventory(dao, v, medi, sup);
+        v.setVisible(true);
+        v.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_bntInvenAdmiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,6 +427,7 @@ public class MenuAdmi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton bntInvenAdmi;
     public javax.swing.JButton bntMnageMedication;
     public javax.swing.JButton btLogout;
     public javax.swing.JButton btManageAppoint;

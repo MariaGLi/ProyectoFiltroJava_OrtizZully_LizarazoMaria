@@ -2,31 +2,38 @@ package MVC.controller;
 
 import MVC.Model.PetsDAO;
 import MVC.Model.pets;
+import MVC.View.MenuAdmi;
+import MVC.View.MenuOwner;
 import MVC.View.Vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
 
 public class petsController implements ActionListener {
+    private PetsDAO petdao;
+    private pets pet ;
+    private Vista vista;
+    private DefaultTableModel modelo;
+    private String userRole;
+    
 
-    PetsDAO petdao = new PetsDAO();
-    pets pet = new pets();
-    Vista vista = new Vista();
-    DefaultTableModel modelo = new DefaultTableModel();
-
-    public petsController(Vista vista, PetsDAO petdao, pets pet) {
+    public petsController(Vista vista, PetsDAO petdao, pets pet, String userRole) {
         this.vista = vista;
         this.petdao = petdao;
         this.pet = pet;
+        this.userRole = userRole;
+        this.modelo = new DefaultTableModel();
 
         this.vista.btnListar.addActionListener(this);
         this.vista.btnGuardar.addActionListener(this);
         this.vista.btnEliminar.addActionListener(this);
         this.vista.btnEditar.addActionListener(this);
+        this.vista.btnBackPet.addActionListener(this);
     }
 
     @Override
@@ -73,6 +80,23 @@ public class petsController implements ActionListener {
             modelo.setRowCount(0);
             list(vista.table);
         }
+        
+        if(e.getSource() == vista.btnBackPet){
+            System.out.println("User role " + userRole);
+            vista.dispose();// Close actual view
+            
+            if("administrator".equals(userRole)){
+                MenuAdmi ma = new MenuAdmi();
+                ma.setVisible(true);
+                ma.setLocationRelativeTo(null);
+            } else if("owner".equals(userRole)){
+                MenuOwner mo = new MenuOwner();
+                mo.setVisible(true);
+                mo.setLocationRelativeTo(null);
+            } else {
+                JOptionPane.showMessageDialog(null, "Unknown User role");
+            }
+        }
     }
 
     //List pet
@@ -104,9 +128,10 @@ public class petsController implements ActionListener {
         Vista vista = new Vista();
         PetsDAO petdao = new PetsDAO();
         pets pet = new pets();
-        petsController pc = new petsController(vista, petdao, pet);
+        petsController pc = new petsController(vista, petdao, pet,"administrator");
         vista.setVisible(true);
-        vista.setLocationRelativeTo(vista);
+        vista.setLocationRelativeTo(null);
+       
     }
 }
 /*

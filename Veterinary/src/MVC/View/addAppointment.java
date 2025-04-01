@@ -60,30 +60,30 @@ public class addAppointment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(96, 163, 188));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(44, 62, 80));
         jLabel1.setText("Add an appointment");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(44, 62, 80));
         jLabel2.setText("DateTime:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(44, 62, 80));
         jLabel3.setText("IdVeterinarian:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(44, 62, 80));
         jLabel4.setText("IdPet:");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(44, 62, 80));
         jLabel5.setText("IdOwner:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(44, 62, 80));
         jLabel6.setText("Reason:");
 
         txtdateTime.setBackground(new java.awt.Color(255, 255, 255));
@@ -98,23 +98,23 @@ public class addAppointment extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtReason);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(44, 62, 80));
         jLabel7.setText("Diagnosis:");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(44, 62, 80));
         jLabel8.setText("Recommendations:");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(44, 62, 80));
         jLabel9.setText("Prescription:");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setForeground(new java.awt.Color(44, 62, 80));
         jLabel10.setText("RequiredPrecedures:");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(44, 62, 80));
         jLabel11.setText("StatusConsul:");
 
         txtDiagnosis.setBackground(new java.awt.Color(255, 255, 255));
@@ -145,11 +145,12 @@ public class addAppointment extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setForeground(new java.awt.Color(44, 62, 80));
         jLabel12.setText("IdConsultation:");
 
         txtidConsultation.setBackground(new java.awt.Color(255, 255, 255));
 
+        statusConsul.setBackground(new java.awt.Color(255, 255, 255));
         statusConsul.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "scheduled", "in_progress", "completed", "canceled" }));
         statusConsul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

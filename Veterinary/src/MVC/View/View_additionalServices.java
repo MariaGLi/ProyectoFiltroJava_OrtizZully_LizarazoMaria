@@ -12,7 +12,6 @@ public class View_additionalServices extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         fondoVerde = new javax.swing.JPanel();
-        titulo2 = new javax.swing.JLabel();
         idPet = new javax.swing.JLabel();
         servicesType = new javax.swing.JLabel();
         descServices = new javax.swing.JLabel();
@@ -24,10 +23,12 @@ public class View_additionalServices extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         btnList = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
-        btnBackAS = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        titulo2 = new javax.swing.JLabel();
+        btnBackAS = new javax.swing.JButton();
 
         jLabel4.setFont(new java.awt.Font("Segoe Script", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
@@ -35,26 +36,22 @@ public class View_additionalServices extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fondoVerde.setBackground(new java.awt.Color(96, 163, 188));
-
-        titulo2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        titulo2.setForeground(new java.awt.Color(255, 255, 255));
-        titulo2.setText("Additional  Services");
+        fondoVerde.setBackground(new java.awt.Color(255, 255, 255));
 
         idPet.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        idPet.setForeground(new java.awt.Color(255, 255, 255));
+        idPet.setForeground(new java.awt.Color(44, 62, 80));
         idPet.setText("IdPet: ");
 
         servicesType.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        servicesType.setForeground(new java.awt.Color(255, 255, 255));
+        servicesType.setForeground(new java.awt.Color(44, 62, 80));
         servicesType.setText("ServicesType: ");
 
         descServices.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        descServices.setForeground(new java.awt.Color(255, 255, 255));
+        descServices.setForeground(new java.awt.Color(44, 62, 80));
         descServices.setText("DescripcionServices: ");
 
         dateTime.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        dateTime.setForeground(new java.awt.Color(255, 255, 255));
+        dateTime.setForeground(new java.awt.Color(44, 62, 80));
         dateTime.setText("DateTime:");
 
         txtidPet.setBackground(new java.awt.Color(255, 255, 255));
@@ -80,16 +77,6 @@ public class View_additionalServices extends javax.swing.JFrame {
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
 
-        btnBackAS.setBackground(new java.awt.Color(44, 62, 80));
-        btnBackAS.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btnBackAS.setForeground(new java.awt.Color(255, 255, 255));
-        btnBackAS.setText("Back");
-        btnBackAS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackASActionPerformed(evt);
-            }
-        });
-
         table.setBackground(new java.awt.Color(255, 255, 255));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,63 +90,101 @@ public class View_additionalServices extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jScrollPane1);
 
+        jPanel1.setBackground(new java.awt.Color(96, 163, 188));
+
+        titulo2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulo2.setForeground(new java.awt.Color(255, 255, 255));
+        titulo2.setText("Additional  Services");
+
+        btnBackAS.setBackground(new java.awt.Color(44, 62, 80));
+        btnBackAS.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnBackAS.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackAS.setText("Back");
+        btnBackAS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackASActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btnBackAS)
+                .addGap(71, 71, 71)
+                .addComponent(titulo2)
+                .addContainerGap(134, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(titulo2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(btnBackAS)))
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout fondoVerdeLayout = new javax.swing.GroupLayout(fondoVerde);
         fondoVerde.setLayout(fondoVerdeLayout);
         fondoVerdeLayout.setHorizontalGroup(
             fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoVerdeLayout.createSequentialGroup()
-                .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(58, 58, 58)
+                .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
                     .addGroup(fondoVerdeLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
                         .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
                             .addGroup(fondoVerdeLayout.createSequentialGroup()
-                                .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(fondoVerdeLayout.createSequentialGroup()
-                                        .addComponent(idPet)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtidPet, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(fondoVerdeLayout.createSequentialGroup()
-                                        .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(servicesType)
-                                            .addComponent(dateTime)
-                                            .addComponent(descServices))
-                                        .addGap(45, 45, 45)
-                                        .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtdateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtdescServ)
-                                            .addComponent(txtServType))))
-                                .addGap(44, 44, 44)
                                 .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAdd)
-                                    .addComponent(btnCancel)
-                                    .addComponent(btnList))
-                                .addGap(27, 27, 27))))
-                    .addGroup(fondoVerdeLayout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(btnBackAS)))
-                .addGap(0, 28, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoVerdeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titulo2)
-                .addGap(142, 142, 142))
+                                    .addComponent(servicesType)
+                                    .addComponent(dateTime)
+                                    .addComponent(descServices))
+                                .addGap(28, 28, 28)
+                                .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtdescServ, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtServType, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtdateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(fondoVerdeLayout.createSequentialGroup()
+                                .addComponent(idPet)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtidPet, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(61, 61, 61)
+                        .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAdd)
+                            .addComponent(btnCancel)
+                            .addComponent(btnList))
+                        .addGap(27, 27, 27)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(fondoVerdeLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fondoVerdeLayout.setVerticalGroup(
             fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoVerdeLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(titulo2)
-                .addGap(54, 54, 54)
-                .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idPet)
-                    .addComponent(txtidPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnList))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoVerdeLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(btnList))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoVerdeLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idPet)
+                            .addComponent(txtidPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)))
                 .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoVerdeLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtServType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(servicesType)))
+                        .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(servicesType)
+                            .addComponent(txtServType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(fondoVerdeLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(btnAdd)))
@@ -167,27 +192,29 @@ public class View_additionalServices extends javax.swing.JFrame {
                 .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(descServices)
                     .addComponent(txtdescServ, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(fondoVerdeLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnCancel)))
                 .addGap(18, 18, 18)
                 .addGroup(fondoVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dateTime)
                     .addComponent(txtdateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(btnBackAS)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoVerde, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fondoVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoVerde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondoVerde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -209,6 +236,7 @@ public class View_additionalServices extends javax.swing.JFrame {
     private javax.swing.JPanel fondoVerde;
     public javax.swing.JLabel idPet;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JLabel servicesType;
