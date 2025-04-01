@@ -7,9 +7,8 @@ import javax.swing.JOptionPane;
 
 
 public class cancelConsulDAO extends Conexion{
-    
-  
-    
+      
+    //delete a consultation
     public boolean deleteConsul(int id){
         PreparedStatement ps = null;
         Connection conec = getConexion();

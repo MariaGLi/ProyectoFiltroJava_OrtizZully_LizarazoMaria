@@ -40,6 +40,7 @@ public class VaccinesDAO  extends Conexion{
         }
     }
     
+    //List the Vaccines
     public List<vaccines> getAll() {
         List<vaccines> list = new ArrayList<>();
         PreparedStatement ps = null;
@@ -74,6 +75,7 @@ public class VaccinesDAO  extends Conexion{
         return list;
     }
     
+    //Delete a vaccines
     public boolean deleteVaccines(int id){
         
         PreparedStatement ps = null;
@@ -88,7 +90,7 @@ public class VaccinesDAO  extends Conexion{
             JOptionPane.showMessageDialog(null, "The vaccine has been eliminated.");
             return true;
         }catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error when deleting the mascot" + e);
+            JOptionPane.showMessageDialog(null, "¡Error! the vaccine has not been eliminated" + e);
             return false;
         }
     }

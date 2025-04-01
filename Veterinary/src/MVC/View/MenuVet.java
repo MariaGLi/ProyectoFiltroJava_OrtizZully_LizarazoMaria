@@ -6,12 +6,15 @@ package MVC.View;
 
 import MVC.Controller.ctrlLogin;
 import MVC.Controller.medicalConsulController;
+import MVC.Controller.surgeriesController;
 import MVC.Controller.vaccinesController;
 import MVC.Model.Login;
 import MVC.Model.LoginDAO;
 import MVC.Model.VaccinesDAO;
 import MVC.Model.addConsulDAO;
 import MVC.Model.medical_consultations;
+import MVC.Model.surgeries;
+import MVC.Model.surgeriesDAO;
 import MVC.Model.vaccines;
 
 /**
@@ -56,7 +59,6 @@ public class MenuVet extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Veterinary");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(44, 62, 80));
         jButton1.setText("Manage Consultations");
@@ -68,14 +70,17 @@ public class MenuVet extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(44, 62, 80));
         jButton2.setText("Manage Surgeries");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(44, 62, 80));
         jButton3.setText("Manage Vaccines");
@@ -178,6 +183,16 @@ public class MenuVet extends javax.swing.JFrame {
         lv.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        surgeries sur = new surgeries();
+        surgeriesDAO surdao = new surgeriesDAO();
+        vistaManageSurgeries abrir = new vistaManageSurgeries();
+        surgeriesController sc = new surgeriesController(abrir, surdao, sur);
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
   
     /**
      * @param args the command line arguments
