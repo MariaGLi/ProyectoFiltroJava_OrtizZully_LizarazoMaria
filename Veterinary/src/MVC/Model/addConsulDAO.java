@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class addConsulDAO extends Conexion{
     
-    // Add a vaccines
+    // Add a medical consultations
     public boolean add(medical_consultations medicon) {
         PreparedStatement ps = null;
         Connection conec = getConexion();

@@ -9,8 +9,7 @@ import java.util.List;
 
 public class listConsulDAO extends Conexion{
 
-    
-
+    //List medical consultations
     public List<medical_consultations> getAllvaccines(int id) {
         List<medical_consultations> list = new ArrayList<>();
         PreparedStatement ps = null;

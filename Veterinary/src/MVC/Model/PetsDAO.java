@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class PetsDAO extends Conexion{
     
-    // Add a animal
+    // Add a pets
     public boolean add(pets animal) {
         PreparedStatement ps = null;
         Connection conec = getConexion();
@@ -35,6 +35,7 @@ public class PetsDAO extends Conexion{
         }
     }
     
+    //update pets
     public boolean update(pets animal){
         
         PreparedStatement ps = null;
@@ -60,7 +61,7 @@ public class PetsDAO extends Conexion{
         }
     }
 
-    // see all animals
+    // see all pets
     public List<pets> getAll() {
         List<pets> list = new ArrayList<>();
         PreparedStatement ps = null;
@@ -96,6 +97,7 @@ public class PetsDAO extends Conexion{
         return list;
     }
     
+    //delete pets
     public boolean  deletePets(int id){
         PreparedStatement ps = null;
         Connection conec = getConexion();

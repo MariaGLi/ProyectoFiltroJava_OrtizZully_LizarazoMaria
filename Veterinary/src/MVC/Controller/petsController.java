@@ -50,11 +50,14 @@ public class petsController implements ActionListener {
             pet.setEmergy_contact(vista.txtemergyContact.getText());
             pet.setId_owner(Integer.parseInt(vista.txtidOwner.getText()));
             petdao.add(pet);
+            modelo.setRowCount(0);
             list(vista.table);
         }
 
         if (e.getSource() == vista.btnEliminar) {
-            petdao.deletePets(Integer.parseInt(vista.txtID.getText()));            
+            petdao.deletePets(Integer.parseInt(vista.txtID.getText()));
+            modelo.setRowCount(0);
+            list(vista.table);
         }
         
         if (e.getSource() == vista.btnEditar){
@@ -67,6 +70,7 @@ public class petsController implements ActionListener {
             pet.setId_pet(Integer.parseInt(vista.txtID.getText()));
             pet.setId_owner(Integer.parseInt(vista.txtidOwner.getText()));
             petdao.update(pet);
+            modelo.setRowCount(0);
             list(vista.table);
         }
     }

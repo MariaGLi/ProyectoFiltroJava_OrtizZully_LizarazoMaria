@@ -36,6 +36,8 @@ public class addiServicesController implements ActionListener {
             addiserv.setDescriptionServices(see.txtdescServ.getText());
             addiserv.setDate_time(see.txtdateTime.getText());
             addiservdao.add(addiserv);
+            modelo.setRowCount(0);
+            list(see.table);
         }
         
         if (e.getSource() == see.btnList){
@@ -44,12 +46,15 @@ public class addiServicesController implements ActionListener {
         
         if (e.getSource() == see.btnCancel){
             addiservdao.deleteService(Integer.parseInt(see.txtidPet.getText()));
+            modelo.setRowCount(0);
+            list(see.table);
         }
     }
     
     //List pet
     public void list(JTable tabla) {
         modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
         List<additional_services> lyst = addiservdao.getAll();
         Object[] object = new Object[5];
         for (int i = 0; i < lyst.size(); i++) {
